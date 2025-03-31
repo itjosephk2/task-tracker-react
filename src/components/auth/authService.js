@@ -9,7 +9,7 @@ export const login = async (credentials) => {
 
 export const signup = async (userData) => {
   console.log('Calling API with:', userData);
-  return axios.post(`${API_BASE_URL}signup/`, userData, {
+  return axios.post(`${API_BASE_URL}register/`, userData, {
     headers: { 'Content-Type': 'application/json' }
   });
 };
