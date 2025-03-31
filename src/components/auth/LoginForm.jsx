@@ -1,10 +1,12 @@
 import React, { useState } from 'react';
 import { Form, Button, Container, Row, Col, Alert } from 'react-bootstrap';
 import { login } from './authService';
+import { useNavigate } from 'react-router-dom';
 
 const LoginForm = () => {
   const [formData, setFormData] = useState({ username: '', password: '' });
   const [error, setError] = useState(null);
+  const navigate = useNavigate();
 
   const handleChange = (e) => {
     setFormData((prev) => ({ ...prev, [e.target.name]: e.target.value }));
@@ -18,8 +20,9 @@ const LoginForm = () => {
       const response = await login(formData);
       const token = response.data.token;
       localStorage.setItem('token', token);
-      // Redirect or success action here
       console.log('Logged in!');
+
+      navigate('/home');
     } catch (err) {
       setError('Login failed. Please check your credentials.');
     }
