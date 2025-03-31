@@ -34,13 +34,22 @@ const Home = () => {
     navigate('/login');
   };
 
+  const goToCreateTask = () => {
+    navigate('/create-task');
+  };
+
   return (
     <Container className="mt-5">
       <div className="d-flex justify-content-between align-items-center mb-4">
         <h2>Your Tasks</h2>
-        <Button variant="secondary" onClick={handleLogout}>
-          Logout
-        </Button>
+        <div>
+          <Button variant="primary" className="me-2" onClick={goToCreateTask}>
+            Create Task
+          </Button>
+          <Button variant="secondary" onClick={handleLogout}>
+            Logout
+          </Button>
+        </div>
       </div>
 
       {loading ? (
