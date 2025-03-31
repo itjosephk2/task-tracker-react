@@ -1,8 +1,17 @@
-import './App.css';
+import React from 'react';
+import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
+import LoginForm from './components/auth/LoginForm';
+import SignupForm from './components/auth/SignupForm';
 
 function App() {
   return (
-    <h1>Hello World!</h1>
+    <Router>
+      <Routes>
+        <Route path="/" element={<Navigate to="/login" />} />
+        <Route path="/login" element={<LoginForm />} />
+        <Route path="/signup" element={<SignupForm />} />
+      </Routes>
+    </Router>
   );
 }
 
