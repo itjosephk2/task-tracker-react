@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Form, Button, Alert, Container, Row, Col } from 'react-bootstrap';
+import API_BASE_URL, { getAuthHeaders } from '../api';
 import axios from 'axios';
 
 const TaskForm = ({ onTaskCreated }) => {
@@ -26,7 +27,7 @@ const TaskForm = ({ onTaskCreated }) => {
     try {
       const token = localStorage.getItem('token');
       const response = await axios.post(
-        `${process.env.REACT_APP_API_URL}/tasks/`,
+        `${API_BASE_URL}tasks/`,
         formData,
         { headers: { Authorization: `Token ${token}` } }
       );
@@ -38,8 +39,9 @@ const TaskForm = ({ onTaskCreated }) => {
       });
       if (onTaskCreated) onTaskCreated(response.data);
     } catch (err) {
-      setError('Failed to create task');
-    }
+        console.error(err.response?.data || err.message);   
+        setError('Failed to create task');
+      }
   };
 
   return (

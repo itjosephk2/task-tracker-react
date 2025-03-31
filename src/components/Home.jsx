@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-import { Container, ListGroup, Spinner, Alert, Button } from 'react-bootstrap';
+import { Container, ListGroup, Spinner, Alert, Button, Badge } from 'react-bootstrap';
 import { useNavigate } from 'react-router-dom';
 
 const Home = () => {
@@ -38,6 +38,25 @@ const Home = () => {
     navigate('/create-task');
   };
 
+  const markAsDone = async (taskId) => {
+    const token = localStorage.getItem('token');
+    try {
+      await axios.patch(
+        `${process.env.REACT_APP_API_BASE_URL || 'https://task-tracker-drf-e7e43a44f5b5.herokuapp.com/api/'}tasks/${taskId}/`,
+        { completed: true },
+        {
+          headers: {
+            Authorization: `Token ${token}`,
+            'Content-Type': 'application/json'
+          }
+        }
+      );
+      fetchTasks(); // Refresh tasks after update
+    } catch (err) {
+      alert('Failed to update task');
+    }
+  };
+
   return (
     <Container className="mt-5">
       <div className="d-flex justify-content-between align-items-center mb-4">
@@ -61,9 +80,17 @@ const Home = () => {
       ) : (
         <ListGroup>
           {tasks.map((task) => (
-            <ListGroup.Item key={task.id}>
-              <strong>{task.title}</strong><br />
-              <small>{task.description}</small>
+            <ListGroup.Item key={task.id} className="d-flex justify-content-between align-items-center">
+              <div>
+                <strong>{task.title}</strong> {task.completed && <Badge bg="success">Done</Badge>}
+                <br />
+                <small>{task.description}</small>
+              </div>
+              {!task.completed && (
+                <Button variant="success" size="sm" onClick={() => markAsDone(task.id)}>
+                  Mark as Done
+                </Button>
+              )}
             </ListGroup.Item>
           ))}
         </ListGroup>
