@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Form, Button, Container, Row, Col, Alert } from 'react-bootstrap';
 import { login } from './authService';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 
 const LoginForm = () => {
   const [formData, setFormData] = useState({ username: '', password: '' });
@@ -21,7 +21,6 @@ const LoginForm = () => {
       const token = response.data.token;
       localStorage.setItem('token', token);
       console.log('Logged in!');
-
       navigate('/home');
     } catch (err) {
       setError('Login failed. Please check your credentials.');
@@ -59,9 +58,15 @@ const LoginForm = () => {
               />
             </Form.Group>
 
-            <Button variant="primary" type="submit" className="w-100">
+            <Button variant="primary" type="submit" className="w-100 mb-3">
               Log In
             </Button>
+
+            <div className="text-center">
+              <small>
+                Don’t have an account? <Link to="/signup">Sign up here</Link>
+              </small>
+            </div>
           </Form>
         </Col>
       </Row>
