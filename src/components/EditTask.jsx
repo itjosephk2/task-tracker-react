@@ -4,6 +4,7 @@ import { useParams, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import { Form, Button, Container, Alert } from 'react-bootstrap';
 import API_BASE_URL, { getAuthHeaders } from '../api';
+import NavBar from './Navbar';
 
 const EditTask = () => {
   const { id } = useParams();
@@ -52,6 +53,8 @@ const EditTask = () => {
   };
 
   return (
+    <>
+    <NavBar />
     <Container className="mt-5">
       <h2>Edit Task</h2>
       {error && <Alert variant="danger">{error}</Alert>}
@@ -102,6 +105,7 @@ const EditTask = () => {
         </Button>
       </Form>
     </Container>
+    </>
   );
 };
 

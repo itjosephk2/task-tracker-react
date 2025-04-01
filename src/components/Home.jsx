@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { Container, ListGroup, Spinner, Alert, Button, Badge } from 'react-bootstrap';
 import { useNavigate, Link } from 'react-router-dom';
+import NavBar from '../components/Navbar';
 
 const Home = () => {
   const [tasks, setTasks] = useState([]);
@@ -29,11 +30,6 @@ const Home = () => {
     fetchTasks();
   }, []);
 
-  const handleLogout = () => {
-    localStorage.removeItem('token');
-    navigate('/login');
-  };
-
   const goToCreateTask = () => {
     navigate('/create-task');
   };
@@ -58,52 +54,50 @@ const Home = () => {
   };
 
   return (
-    <Container className="mt-5">
-      <div className="d-flex justify-content-between align-items-center mb-4">
-        <h2>Your Tasks</h2>
-        <div>
-          <Button variant="primary" className="me-2" onClick={goToCreateTask}>
+    <>
+      <NavBar />
+      <Container className="mt-4">
+        <div className="d-flex justify-content-between align-items-center mb-4">
+          <h2>Your Tasks</h2>
+          <Button variant="primary" onClick={goToCreateTask}>
             Create Task
           </Button>
-          <Button variant="secondary" onClick={handleLogout}>
-            Logout
-          </Button>
         </div>
-      </div>
 
-      {loading ? (
-        <Spinner animation="border" />
-      ) : error ? (
-        <Alert variant="danger">{error}</Alert>
-      ) : tasks.length === 0 ? (
-        <p>No tasks found.</p>
-      ) : (
-        <ListGroup>
-          {tasks.map((task) => (
-            <ListGroup.Item key={task.id} className="d-flex justify-content-between align-items-center">
-              <div>
-                <strong>
-                  <Link
-                    to={`/tasks/${task.id}`}
-                    className="text-decoration-none text-dark"
-                  >
-                    {task.title}
-                  </Link>
-                </strong>{' '}
-                {task.completed && <Badge bg="success">Done</Badge>}
-                <br />
-                <small>{task.description}</small>
-              </div>
-              {!task.completed && (
-                <Button variant="success" size="sm" onClick={() => markAsDone(task.id)}>
-                  Mark as Done
-                </Button>
-              )}
-            </ListGroup.Item>
-          ))}
-        </ListGroup>
-      )}
-    </Container>
+        {loading ? (
+          <Spinner animation="border" />
+        ) : error ? (
+          <Alert variant="danger">{error}</Alert>
+        ) : tasks.length === 0 ? (
+          <p>No tasks found.</p>
+        ) : (
+          <ListGroup>
+            {tasks.map((task) => (
+              <ListGroup.Item key={task.id} className="d-flex justify-content-between align-items-center">
+                <div>
+                  <strong>
+                    <Link
+                      to={`/tasks/${task.id}`}
+                      className="text-decoration-none text-dark"
+                    >
+                      {task.title}
+                    </Link>
+                  </strong>{' '}
+                  {task.completed && <Badge bg="success">Done</Badge>}
+                  <br />
+                  <small>{task.description}</small>
+                </div>
+                {!task.completed && (
+                  <Button variant="success" size="sm" onClick={() => markAsDone(task.id)}>
+                    Mark as Done
+                  </Button>
+                )}
+              </ListGroup.Item>
+            ))}
+          </ListGroup>
+        )}
+      </Container>
+    </>
   );
 };
 

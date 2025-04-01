@@ -4,6 +4,7 @@ import { useParams, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import { Container, Button, Spinner, Alert, Card, Modal } from 'react-bootstrap';
 import API_BASE_URL, { getAuthHeaders } from '../api';
+import NavBar from '../components/Navbar';
 
 const ViewTask = () => {
   const { id } = useParams();
@@ -50,6 +51,8 @@ const ViewTask = () => {
   };
 
   return (
+    <>
+    <NavBar/>
     <Container className="mt-5">
       {loading ? (
         <Spinner animation="border" />
@@ -90,6 +93,7 @@ const ViewTask = () => {
         </>
       )}
     </Container>
+    </>
   );
 };
 

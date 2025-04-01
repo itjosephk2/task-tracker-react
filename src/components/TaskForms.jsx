@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Form, Button, Alert, Container, Row, Col } from 'react-bootstrap';
 import API_BASE_URL, { getAuthHeaders } from '../api';
 import axios from 'axios';
+import NavBar from '../components/Navbar';
 
 const TaskForm = ({ onTaskCreated }) => {
   const [formData, setFormData] = useState({
@@ -25,11 +26,10 @@ const TaskForm = ({ onTaskCreated }) => {
     setError(null);
 
     try {
-      const token = localStorage.getItem('token');
       const response = await axios.post(
         `${API_BASE_URL}tasks/`,
         formData,
-        { headers: { Authorization: `Token ${token}` } }
+        { headers: getAuthHeaders() }
       );
       setFormData({
         title: '',
@@ -45,6 +45,8 @@ const TaskForm = ({ onTaskCreated }) => {
   };
 
   return (
+    <>
+    <NavBar />
     <Container className="mt-5">
       <Row className="justify-content-center">
         <Col xs={12} sm={10} md={8} lg={6}>
@@ -101,6 +103,7 @@ const TaskForm = ({ onTaskCreated }) => {
         </Col>
       </Row>
     </Container>
+    </>
   );
 };
 
