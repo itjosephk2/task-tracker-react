@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { Container, ListGroup, Spinner, Alert, Button, Badge } from 'react-bootstrap';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 
 const Home = () => {
   const [tasks, setTasks] = useState([]);
@@ -82,7 +82,15 @@ const Home = () => {
           {tasks.map((task) => (
             <ListGroup.Item key={task.id} className="d-flex justify-content-between align-items-center">
               <div>
-                <strong>{task.title}</strong> {task.completed && <Badge bg="success">Done</Badge>}
+                <strong>
+                  <Link
+                    to={`/tasks/${task.id}`}
+                    className="text-decoration-none text-dark"
+                  >
+                    {task.title}
+                  </Link>
+                </strong>{' '}
+                {task.completed && <Badge bg="success">Done</Badge>}
                 <br />
                 <small>{task.description}</small>
               </div>
