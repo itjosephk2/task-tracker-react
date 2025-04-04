@@ -57,7 +57,7 @@ const Home = () => {
   return (
     <div className="page-wrapper">
       <NavBar />
-      <div className="page-content">
+      <main className="page-content">
         <Container className="mt-4 mb-5">
           <div className="d-flex justify-content-between align-items-center mb-4">
             <h2>Your Tasks</h2>
@@ -99,7 +99,7 @@ const Home = () => {
             </ListGroup>
           )}
         </Container>
-      </div>
+      </main>
       <Footer />
     </div>
   );
