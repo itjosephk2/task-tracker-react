@@ -1,10 +1,10 @@
-// src/components/ViewTask.jsx
 import React, { useEffect, useState } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import { Container, Button, Spinner, Alert, Card, Modal } from 'react-bootstrap';
 import API_BASE_URL, { getAuthHeaders } from '../api';
 import NavBar from '../components/Navbar';
+import Footer from '../components/Footer'; // Make sure the path is correct
 
 const ViewTask = () => {
   const { id } = useParams();
@@ -51,49 +51,52 @@ const ViewTask = () => {
   };
 
   return (
-    <>
-    <NavBar/>
-    <Container className="mt-5">
-      {loading ? (
-        <Spinner animation="border" />
-      ) : error ? (
-        <Alert variant="danger">{error}</Alert>
-      ) : (
-        <>
-          <Card>
-            <Card.Body>
-              <Card.Title>{task.title}</Card.Title>
-              <Card.Text>
-                <strong>Description:</strong> {task.description || 'None'}<br />
-                <strong>Due Date:</strong> {task.due_date || 'None'}<br />
-                <strong>Completed:</strong> {task.completed ? 'Yes' : 'No'}
-              </Card.Text>
-              <div className="d-flex flex-wrap gap-2">
-                <Button variant="secondary" onClick={handleBack}>Back</Button>
-                <Button variant="primary" onClick={handleEdit}>Edit</Button>
-                <Button variant="danger" onClick={() => setShowConfirm(true)}>Delete</Button>
-              </div>
-            </Card.Body>
-          </Card>
+    <div className="d-flex flex-column min-vh-100">
+      <NavBar />
+      <main className="flex-fill">
+        <Container className="mt-5 mb-5">
+          {loading ? (
+            <Spinner animation="border" />
+          ) : error ? (
+            <Alert variant="danger">{error}</Alert>
+          ) : (
+            <>
+              <Card>
+                <Card.Body>
+                  <Card.Title>{task.title}</Card.Title>
+                  <Card.Text>
+                    <strong>Description:</strong> {task.description || 'None'}<br />
+                    <strong>Due Date:</strong> {task.due_date || 'None'}<br />
+                    <strong>Completed:</strong> {task.completed ? 'Yes' : 'No'}
+                  </Card.Text>
+                  <div className="d-flex flex-wrap gap-2">
+                    <Button variant="secondary" onClick={handleBack}>Back</Button>
+                    <Button variant="primary" onClick={handleEdit}>Edit</Button>
+                    <Button variant="danger" onClick={() => setShowConfirm(true)}>Delete</Button>
+                  </div>
+                </Card.Body>
+              </Card>
 
-          <Modal show={showConfirm} onHide={() => setShowConfirm(false)}>
-            <Modal.Header closeButton>
-              <Modal.Title>Confirm Delete</Modal.Title>
-            </Modal.Header>
-            <Modal.Body>Are you sure you want to delete this task?</Modal.Body>
-            <Modal.Footer>
-              <Button variant="secondary" onClick={() => setShowConfirm(false)}>
-                Cancel
-              </Button>
-              <Button variant="danger" onClick={handleDelete}>
-                Delete
-              </Button>
-            </Modal.Footer>
-          </Modal>
-        </>
-      )}
-    </Container>
-    </>
+              <Modal show={showConfirm} onHide={() => setShowConfirm(false)}>
+                <Modal.Header closeButton>
+                  <Modal.Title>Confirm Delete</Modal.Title>
+                </Modal.Header>
+                <Modal.Body>Are you sure you want to delete this task?</Modal.Body>
+                <Modal.Footer>
+                  <Button variant="secondary" onClick={() => setShowConfirm(false)}>
+                    Cancel
+                  </Button>
+                  <Button variant="danger" onClick={handleDelete}>
+                    Delete
+                  </Button>
+                </Modal.Footer>
+              </Modal>
+            </>
+          )}
+        </Container>
+      </main>
+      <Footer />
+    </div>
   );
 };
 

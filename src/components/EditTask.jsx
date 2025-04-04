@@ -1,10 +1,10 @@
-// src/components/EditTask.jsx
 import React, { useEffect, useState } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import { Form, Button, Container, Alert } from 'react-bootstrap';
 import API_BASE_URL, { getAuthHeaders } from '../api';
 import NavBar from './Navbar';
+import Footer from './Footer';
 
 const EditTask = () => {
   const { id } = useParams();
@@ -53,59 +53,62 @@ const EditTask = () => {
   };
 
   return (
-    <>
-    <NavBar />
-    <Container className="mt-5">
-      <h2>Edit Task</h2>
-      {error && <Alert variant="danger">{error}</Alert>}
-      <Form onSubmit={handleSubmit}>
-        <Form.Group className="mb-3">
-          <Form.Label>Title</Form.Label>
-          <Form.Control
-            type="text"
-            name="title"
-            value={task.title}
-            onChange={handleChange}
-            required
-          />
-        </Form.Group>
+    <div className="d-flex flex-column min-vh-100">
+      <NavBar />
+      <main className="flex-fill">
+        <Container className="mt-5 mb-5">
+          <h2>Edit Task</h2>
+          {error && <Alert variant="danger">{error}</Alert>}
+          <Form onSubmit={handleSubmit}>
+            <Form.Group className="mb-3">
+              <Form.Label>Title</Form.Label>
+              <Form.Control
+                type="text"
+                name="title"
+                value={task.title}
+                onChange={handleChange}
+                required
+              />
+            </Form.Group>
 
-        <Form.Group className="mb-3">
-          <Form.Label>Description</Form.Label>
-          <Form.Control
-            as="textarea"
-            name="description"
-            value={task.description}
-            onChange={handleChange}
-          />
-        </Form.Group>
+            <Form.Group className="mb-3">
+              <Form.Label>Description</Form.Label>
+              <Form.Control
+                as="textarea"
+                name="description"
+                value={task.description}
+                onChange={handleChange}
+              />
+            </Form.Group>
 
-        <Form.Group className="mb-3">
-          <Form.Label>Due Date</Form.Label>
-          <Form.Control
-            type="date"
-            name="due_date"
-            value={task.due_date || ''}
-            onChange={handleChange}
-          />
-        </Form.Group>
+            <Form.Group className="mb-3">
+              <Form.Label>Due Date</Form.Label>
+              <Form.Control
+                type="date"
+                name="due_date"
+                value={task.due_date || ''}
+                onChange={handleChange}
+              />
+            </Form.Group>
 
-        <Form.Group className="mb-3">
-          <Form.Check
-            type="checkbox"
-            label="Completed"
-            name="completed"
-            checked={task.completed}
-            onChange={handleChange}
-          />
-        </Form.Group>
+            <Form.Group className="mb-3">
+              <Form.Check
+                type="checkbox"
+                label="Completed"
+                name="completed"
+                checked={task.completed}
+                onChange={handleChange}
+              />
+            </Form.Group>
 
-        <Button type="submit" variant="primary">
-          Save Changes
-        </Button>
-      </Form>
-    </Container>
-    </>
+            <Button type="submit" variant="primary">
+              Save Changes
+            </Button>
+          </Form>
+        </Container>
+      </main>
+      <Footer />
+    </div>
   );
 };
 
