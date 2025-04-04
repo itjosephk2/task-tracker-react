@@ -1,3 +1,4 @@
+/* General App styles */
 .App {
   text-align: center;
 }
@@ -28,6 +29,7 @@
   color: #61dafb;
 }
 
+/* Animation */
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);
@@ -37,7 +39,7 @@
   }
 }
 
+/* Button hover effect */
 button:hover {
   cursor: pointer;
 }
-
