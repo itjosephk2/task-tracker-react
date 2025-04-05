@@ -124,9 +124,6 @@ const Home = () => {
                           markAsCompleted(task.id, e.target.checked);
                         }}
                       />
-                    <label className="form-check-label ms-2">
-                      {task.completed ? 'Done' : 'Mark as Done'}
-                    </label>
                   </div>
                   </div>
                 </div>
