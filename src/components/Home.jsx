@@ -111,17 +111,19 @@ const Home = () => {
                     )}
                   </div>
                   <div className="col-md-2 text-end">
-                  <div className="form-check d-flex justify-content-end align-items-center">
-                    <input
-                      className="form-check-input"
-                      type="checkbox"
-                      checked={task.completed}
-                      onChange={(e) => {
-                        e.preventDefault();
-                        e.stopPropagation();
-                        markAsCompleted(task.id, e.target.checked);
-                      }}
-                    />
+                    <div className="form-check d-flex justify-content-end align-items-center">
+                      <input
+                        type="checkbox"
+                        className="form-check-input"
+                        checked={task.completed}
+                        onClick={(e) => {
+                          e.preventDefault();     // Prevent link default
+                          e.stopPropagation();    // Stop event from bubbling to row
+                        }}
+                        onChange={(e) => {
+                          markAsCompleted(task.id, e.target.checked);
+                        }}
+                      />
                     <label className="form-check-label ms-2">
                       {task.completed ? 'Done' : 'Mark as Done'}
                     </label>
