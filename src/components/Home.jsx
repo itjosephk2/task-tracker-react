@@ -86,10 +86,9 @@ const Home = () => {
                 key={task.id}
                 as={Link}
                 to={`/tasks/${task.id}`}
-                className={`px-3 py-2 list-group-item-action text-dark text-decoration-none d-block ${
-                  task.completed ? 'bg-light' : ''
-                }`}
+                className="px-3 py-2 list-group-item-action text-dark text-decoration-none d-block"
               >
+            
                 <div className="row align-items-center text-wrap">
                   <div className="col-md-3">
                     <span className="fw-bold">{task.title}</span>
