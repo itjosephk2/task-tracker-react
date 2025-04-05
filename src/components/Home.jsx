@@ -67,9 +67,9 @@
             </div>
             <div className="row fw-bold px-3 py-2 border-bottom d-none d-md-flex">
               <div className="col-md-3">Title</div>
-              <div className="col-md-5">Description</div>
+              <div className="col-md-4">Description</div>
               <div className="col-md-2">Due Date</div>
-              <div className="col-md-1">Status</div>
+              <div className="col-md-2">Status</div>
               <div className="col-md-1 text-end pe-4">Done</div>
             </div>
             {loading ? (
