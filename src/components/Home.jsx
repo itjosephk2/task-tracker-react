@@ -65,7 +65,13 @@ const Home = () => {
               Create Task
             </Button>
           </div>
-
+          <div className="row fw-bold px-3 py-2 border-bottom">
+              <div className="col-md-3">Title</div>
+              <div className="col-md-3">Description</div>
+              <div className="col-md-2">Due Date</div>
+              <div className="col-md-2">Status</div>
+              <div className="col-md-2 text-end">Action</div>
+            </div>
           {loading ? (
             <Spinner animation="border" />
           ) : error ? (
@@ -73,28 +79,45 @@ const Home = () => {
           ) : tasks.length === 0 ? (
             <p>No tasks found.</p>
           ) : (
+            
             <ListGroup>
               {tasks.map((task) => (
-                <ListGroup.Item key={task.id} className="d-flex justify-content-between align-items-center">
-                  <div>
-                    <strong>
-                      <Link
-                        to={`/tasks/${task.id}`}
-                        className="text-decoration-none text-dark"
-                      >
-                        {task.title}
-                      </Link>
-                    </strong>{' '}
-                    {task.completed && <Badge bg="success">Done</Badge>}
-                    <br />
-                    <small>{task.description}</small>
-                  </div>
-                  {!task.completed && (
-                    <Button variant="success" size="sm" onClick={() => markAsDone(task.id)}>
-                      Mark as Done
-                    </Button>
-                  )}
-                </ListGroup.Item>
+            <ListGroup.Item key={task.id} className="px-3 py-2">
+            <div className="row align-items-center text-wrap">
+              <div className="col-md-3">
+                <Link to={`/tasks/${task.id}`} className="text-decoration-none text-dark fw-bold">
+                  {task.title}
+                </Link>
+              </div>
+              <div className="col-md-3">
+                <small>{task.description}</small>
+              </div>
+              <div className="col-md-2">
+                {task.due_date ? new Date(task.due_date).toLocaleDateString() : 'N/A'}
+              </div>
+              <div className="col-md-2">
+                {task.completed ? (
+                  <Badge bg="success">Done</Badge>
+                ) : (
+                  new Date(task.due_date) < new Date().setHours(0, 0, 0, 0) ? (
+                    <Badge bg="danger">Overdue</Badge>
+                  ) : (
+                    <Badge bg="warning text-dark">Pending</Badge>
+                  )
+                )}
+              </div>
+              <div className="col-md-2 text-end">
+                {!task.completed && (
+                  <Button variant="success" size="sm" onClick={() => markAsDone(task.id)}>
+                    Mark as Done
+                  </Button>
+                )}
+              </div>
+            </div>
+          </ListGroup.Item>
+          
+              
+              
               ))}
             </ListGroup>
           )}
