@@ -82,12 +82,17 @@ const Home = () => {
             
             <ListGroup>
               {tasks.map((task) => (
-            <ListGroup.Item key={task.id} className="px-3 py-2">
+            <ListGroup.Item
+              key={task.id}
+              as={Link}
+              to={`/tasks/${task.id}`}
+              className={`px-3 py-2 list-group-item-action text-dark text-decoration-none d-block ${
+                task.completed ? 'bg-light' : ''
+              }`}
+            >
             <div className="row align-items-center text-wrap">
               <div className="col-md-3">
-                <Link to={`/tasks/${task.id}`} className="text-decoration-none text-dark fw-bold">
-                  {task.title}
-                </Link>
+                <span className="fw-bold">{task.title}</span>
               </div>
               <div className="col-md-3">
                 <small>{task.description}</small>
@@ -106,9 +111,17 @@ const Home = () => {
                   )
                 )}
               </div>
-              <div className="col-md-2 text-end">
+                            <div className="col-md-2 text-end">
                 {!task.completed && (
-                  <Button variant="success" size="sm" onClick={() => markAsDone(task.id)}>
+                  <Button
+                    variant="success"
+                    size="sm"
+                    onClick={(e) => {
+                      e.preventDefault();
+                      e.stopPropagation();
+                      markAsDone(task.id);
+                    }}
+                  >
                     Mark as Done
                   </Button>
                 )}
