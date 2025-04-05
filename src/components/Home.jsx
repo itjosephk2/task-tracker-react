@@ -67,10 +67,10 @@ const Home = () => {
           </div>
           <div className="row fw-bold px-3 py-2 border-bottom">
             <div className="col-md-3">Title</div>
-            <div className="col-md-3">Description</div>
-            <div className="col-md-2">Due Date</div>
-            <div className="col-md-2">Status</div>
-            <div className="col-md-2 text-end">Done</div>
+            <div className="col-md-6">Description</div>
+            <div className="col-md-1">Due Date</div>
+            <div className="col-md-1">Status</div>
+            <div className="col-md-1 text-end pe-4">Done</div>
           </div>
           {loading ? (
             <Spinner animation="border" />
@@ -93,13 +93,13 @@ const Home = () => {
                   <div className="col-md-3">
                     <span className="fw-bold">{task.title}</span>
                   </div>
-                  <div className="col-md-3">
+                  <div className="col-md-6">
                     <small>{task.description}</small>
                   </div>
-                  <div className="col-md-2">
+                  <div className="col-md-1">
                     {task.due_date ? new Date(task.due_date).toLocaleDateString() : 'N/A'}
                   </div>
-                  <div className="col-md-2">
+                  <div className="col-md-1">
                     {task.completed ? (
                       <Badge bg="success">Done</Badge>
                     ) : (
@@ -110,21 +110,21 @@ const Home = () => {
                       )
                     )}
                   </div>
-                  <div className="col-md-2 text-end">
-                    <div className="form-check d-flex justify-content-end align-items-center">
-                      <input
-                        type="checkbox"
-                        className="form-check-input"
-                        checked={task.completed}
-                        onClick={(e) => {
-                          e.preventDefault();
-                          e.stopPropagation();
-                        }}
-                        onChange={(e) => {
-                          markAsCompleted(task.id, e.target.checked);
-                        }}
-                      />
-                  </div>
+                  <div className="col-md-1 text-end">
+                    <div className="form-check d-flex justify-content-end align-items-center pe-4">
+                        <input
+                          type="checkbox"
+                          className="form-check-input"
+                          checked={task.completed}
+                          onClick={(e) => {
+                            e.preventDefault();
+                            e.stopPropagation();
+                          }}
+                          onChange={(e) => {
+                            markAsCompleted(task.id, e.target.checked);
+                          }}
+                        />
+                    </div>
                   </div>
                 </div>
               </ListGroup.Item>
