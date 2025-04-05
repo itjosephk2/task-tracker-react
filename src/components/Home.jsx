@@ -116,6 +116,7 @@ const Home = () => {
                           type="checkbox"
                           className="form-check-input"
                           checked={task.completed}
+                          style={{ transform: 'scale(1.5)' }}
                           onClick={(e) => {
                             e.preventDefault();
                             e.stopPropagation();
