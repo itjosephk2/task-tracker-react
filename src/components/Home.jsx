@@ -70,7 +70,7 @@ const Home = () => {
             <div className="col-md-3">Description</div>
             <div className="col-md-2">Due Date</div>
             <div className="col-md-2">Status</div>
-            <div className="col-md-2 text-end">Action</div>
+            <div className="col-md-2 text-end">Done</div>
           </div>
           {loading ? (
             <Spinner animation="border" />
@@ -117,8 +117,8 @@ const Home = () => {
                         className="form-check-input"
                         checked={task.completed}
                         onClick={(e) => {
-                          e.preventDefault();     // Prevent link default
-                          e.stopPropagation();    // Stop event from bubbling to row
+                          e.preventDefault();
+                          e.stopPropagation();
                         }}
                         onChange={(e) => {
                           markAsCompleted(task.id, e.target.checked);
