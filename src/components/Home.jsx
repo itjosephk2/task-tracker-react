@@ -35,12 +35,12 @@ const Home = () => {
     navigate('/create-task');
   };
 
-  const markAsDone = async (taskId) => {
+  const markAsCompleted = async (taskId, isCompleted) => {
     const token = localStorage.getItem('token');
     try {
       await axios.patch(
         `${process.env.REACT_APP_API_BASE_URL || 'https://task-tracker-drf-e7e43a44f5b5.herokuapp.com/api/'}tasks/${taskId}/`,
-        { completed: true },
+        { completed: isCompleted },
         {
           headers: {
             Authorization: `Token ${token}`,
@@ -48,9 +48,9 @@ const Home = () => {
           }
         }
       );
-      fetchTasks(); // Refresh tasks after update
+      fetchTasks(); // Refresh tasks after toggle
     } catch (err) {
-      alert('Failed to update task');
+      alert('Failed to update task status');
     }
   };
 
@@ -111,19 +111,21 @@ const Home = () => {
                     )}
                   </div>
                   <div className="col-md-2 text-end">
-                    {!task.completed && (
-                      <Button
-                        variant="success"
-                        size="sm"
-                        onClick={(e) => {
-                          e.preventDefault();
-                          e.stopPropagation();
-                          markAsDone(task.id);
-                        }}
-                      >
-                        Mark as Done
-                      </Button>
-                    )}
+                  <div className="form-check d-flex justify-content-end align-items-center">
+                    <input
+                      className="form-check-input"
+                      type="checkbox"
+                      checked={task.completed}
+                      onChange={(e) => {
+                        e.preventDefault();
+                        e.stopPropagation();
+                        markAsCompleted(task.id, e.target.checked);
+                      }}
+                    />
+                    <label className="form-check-label ms-2">
+                      {task.completed ? 'Done' : 'Mark as Done'}
+                    </label>
+                  </div>
                   </div>
                 </div>
               </ListGroup.Item>
