@@ -4,6 +4,8 @@ import API_BASE_URL, { getAuthHeaders } from '../api';
 import axios from 'axios';
 import NavBar from '../components/Navbar';
 import Footer from '../components/Footer';
+import { toast } from 'react-toastify';
+
 
 const TaskForm = ({ onTaskCreated }) => {
   const [formData, setFormData] = useState({
@@ -38,14 +40,17 @@ const TaskForm = ({ onTaskCreated }) => {
         due_date: '',
         completed: false,
       });
+      toast.success('Task created successfully!');
       if (onTaskCreated) onTaskCreated(response.data);
     } catch (err) {
       console.error(err.response?.data || err.message);
       setError('Failed to create task');
+      toast.error('Failed to create the task.');
     }
   };
 
   return (
+
     <div className="d-flex flex-column min-vh-100">
       <NavBar />
       <main className="flex-fill">

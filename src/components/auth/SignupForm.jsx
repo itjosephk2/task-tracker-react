@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import { Form, Button, Container, Row, Col, Alert } from 'react-bootstrap';
 import { signup } from './authService';
 import { Link, useNavigate } from 'react-router-dom';
+import { toast } from 'react-toastify';
+
 
 const SignupForm = () => {
   const [formData, setFormData] = useState({ username: '', password: '' });
@@ -19,8 +21,10 @@ const SignupForm = () => {
     setSuccess(false);
 
     try {
-      const response = await signup(formData);
+      await signup(formData);
       setSuccess(true);
+      toast.success('🎉 Signup successful!');
+
 
       // Redirect after 2 seconds
       setTimeout(() => {
@@ -28,6 +32,7 @@ const SignupForm = () => {
       }, 2000);
     } catch (err) {
       setError('Signup failed. Please try a different username.');
+      toast.error('Signup failed.');
     }
   };
 

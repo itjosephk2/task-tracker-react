@@ -8,6 +8,8 @@ import TaskForm from './components/TaskForms';
 import ViewTask from './components/ViewTask';
 import EditTask from './components/EditTask';
 import ProtectedRoute from './components/ProtectedRoute';
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 function App() {
   return (
@@ -49,6 +51,7 @@ function App() {
           }
         />
       </Routes>
+      <ToastContainer position="top-right" autoClose={3000} hideProgressBar />
     </Router>
   );
 }
