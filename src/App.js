@@ -1,7 +1,7 @@
 // src/App.js
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import LandingPage from './pages/LandingPage'
+import LandingPage from './pages/LandingPage';
 import LoginForm from './pages/auth/LoginForm';
 import SignupForm from './pages/auth/SignupForm';
 import Home from './pages/Home';
@@ -12,6 +12,13 @@ import ProtectedRoute from './routes/ProtectedRoute';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
+/**
+ * Main application component that sets up routing for the app.
+ * Includes public routes (login, signup, landing page) and protected routes
+ * for authenticated users (home, task-related pages).
+ *
+ * @returns {JSX.Element} The main app with routing and toast notifications.
+ */
 function App() {
   return (
     <Router>

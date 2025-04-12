@@ -4,30 +4,46 @@ import { login } from '../../services/authService';
 import { useNavigate, Link } from 'react-router-dom';
 import { toast } from 'react-toastify';
 
+/**
+ * LoginForm component that allows users to log into the application.
+ * On successful login, stores the auth token in localStorage and redirects to /home.
+ *
+ * @returns {JSX.Element} The login form UI.
+ */
 const LoginForm = () => {
   const [formData, setFormData] = useState({ username: '', password: '' });
   const navigate = useNavigate();
 
+  /**
+   * Handles input changes in the login form.
+   *
+   * @param {React.ChangeEvent<HTMLInputElement>} e - The input change event.
+   */
   const handleChange = (e) => {
     setFormData((prev) => ({ ...prev, [e.target.name]: e.target.value }));
   };
 
+  /**
+   * Submits the login form and authenticates the user via the API.
+   * If successful, stores token and shows a toast message before redirecting.
+   *
+   * @param {React.FormEvent} e - The form submission event.
+   */
   const handleSubmit = async (e) => {
     e.preventDefault();
 
     try {
       const data = await login(formData);
       const token = data.token;
-    
+
       localStorage.setItem('token', token);
       localStorage.setItem('toastMessage', '🎉 Welcome back!');
-    
+
       console.log('Logged in!');
       navigate('/home');
     } catch (err) {
       toast.error('Login failed. Please check your credentials.');
     }
-    
   };
 
   return (
@@ -45,7 +61,7 @@ const LoginForm = () => {
                 value={formData.username}
                 onChange={handleChange}
                 required
-                autoComplete="username" 
+                autoComplete="username"
               />
             </Form.Group>
 

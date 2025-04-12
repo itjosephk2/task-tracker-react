@@ -6,7 +6,14 @@ import NavBar from '../components/Navbar';
 import Footer from '../components/Footer';
 import { toast } from 'react-toastify';
 
-
+/**
+ * TaskForm component for creating a new task.
+ * Includes a form for entering task details like title, description, due date, and status.
+ *
+ * @param {Object} props - Component props.
+ * @param {Function} [props.onTaskCreated] - Optional callback to notify parent when a task is created.
+ * @returns {JSX.Element} The task creation form UI.
+ */
 const TaskForm = ({ onTaskCreated }) => {
   const [formData, setFormData] = useState({
     title: '',
@@ -16,6 +23,11 @@ const TaskForm = ({ onTaskCreated }) => {
   });
   const [error, setError] = useState(null);
 
+  /**
+   * Handles form input changes and updates local state.
+   *
+   * @param {React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>} e - The change event.
+   */
   const handleChange = (e) => {
     const { name, value, type, checked } = e.target;
     setFormData((prev) => ({
@@ -24,6 +36,11 @@ const TaskForm = ({ onTaskCreated }) => {
     }));
   };
 
+  /**
+   * Handles form submission, sending the task data to the API.
+   *
+   * @param {React.FormEvent} e - The form submission event.
+   */
   const handleSubmit = async (e) => {
     e.preventDefault();
     setError(null);
@@ -50,7 +67,6 @@ const TaskForm = ({ onTaskCreated }) => {
   };
 
   return (
-
     <div className="d-flex flex-column min-vh-100">
       <NavBar />
       <main className="flex-fill">

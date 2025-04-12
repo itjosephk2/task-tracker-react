@@ -4,8 +4,14 @@ import axios from 'axios';
 import { Container, Button, Spinner, Alert, Card, Modal } from 'react-bootstrap';
 import API_BASE_URL, { getAuthHeaders } from '../api';
 import NavBar from '../components/Navbar';
-import Footer from '../components/Footer'; // Make sure the path is correct
+import Footer from '../components/Footer';
 
+/**
+ * ViewTask component displays the details of a single task.
+ * Provides options to edit or delete the task, with confirmation before deletion.
+ *
+ * @returns {JSX.Element} The task detail view UI.
+ */
 const ViewTask = () => {
   const { id } = useParams();
   const navigate = useNavigate();
@@ -14,6 +20,9 @@ const ViewTask = () => {
   const [error, setError] = useState(null);
   const [showConfirm, setShowConfirm] = useState(false);
 
+  /**
+   * Fetches the task details by ID when the component mounts.
+   */
   useEffect(() => {
     const fetchTask = async () => {
       try {
@@ -31,10 +40,16 @@ const ViewTask = () => {
     fetchTask();
   }, [id]);
 
+  /**
+   * Navigates to the edit page for the current task.
+   */
   const handleEdit = () => {
     navigate(`/tasks/${id}/edit`);
   };
 
+  /**
+   * Sends a DELETE request to remove the task, then navigates back to the home page.
+   */
   const handleDelete = async () => {
     try {
       await axios.delete(`${API_BASE_URL}tasks/${id}/`, {

@@ -1,6 +1,11 @@
+/**
+ * Base URL for the Task Tracker API.
+ * All API requests should use this as the root endpoint.
+ * 
+ * @constant {string}
+ */
 const API_BASE_URL = 'https://task-tracker-drf-e7e43a44f5b5.herokuapp.com/api/';
 export default API_BASE_URL;
-
 
 /**
  * Generates authentication headers for API requests.

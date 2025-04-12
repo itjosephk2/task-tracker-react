@@ -4,6 +4,13 @@ import { useNavigate } from 'react-router-dom';
 import NavBar from '../components/Navbar';
 import Footer from '../components/Footer';
 
+/**
+ * LandingPage component that serves as the homepage of the app.
+ * Introduces users to the Task Tracker with a welcome message, feature highlights,
+ * and a call-to-action button that navigates to the main app.
+ *
+ * @returns {JSX.Element} The landing page content.
+ */
 const LandingPage = () => {
   const navigate = useNavigate();
 
