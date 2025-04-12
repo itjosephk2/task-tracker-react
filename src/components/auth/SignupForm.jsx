@@ -48,8 +48,6 @@ const SignupForm = () => {
       <Row className="justify-content-md-center">
         <Col md={6}>
           <h2 className="mb-4">Sign Up</h2>
-          {success && <Alert variant="success">Signup successful! Redirecting to login...</Alert>}
-          {error && <Alert variant="danger">{error}</Alert>}
           <Form onSubmit={handleSubmit}>
             <Form.Group className="mb-3" controlId="signupUsername">
               <Form.Label>Username</Form.Label>
