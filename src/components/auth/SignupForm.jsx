@@ -47,7 +47,7 @@ const SignupForm = () => {
     <Container className="mt-5">
       <Row className="justify-content-md-center">
         <Col md={6}>
-          <h2 className="mb-4">Sign Up</h2>
+          <h2 className="mb-4">Sign Up</h2>git 
           <Form onSubmit={handleSubmit}>
             <Form.Group className="mb-3" controlId="signupUsername">
               <Form.Label>Username</Form.Label>
