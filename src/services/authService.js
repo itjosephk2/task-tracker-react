@@ -1,5 +1,5 @@
 import axios from 'axios';
-import API_BASE_URL, { getAuthHeaders } from '../../api';
+import API_BASE_URL, { getAuthHeaders } from '../api';
 
 // LOGIN FUNCTION
 export const login = async (credentials) => {

@@ -3,8 +3,8 @@ import { useParams, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import { Form, Button, Container, Alert } from 'react-bootstrap';
 import API_BASE_URL, { getAuthHeaders } from '../api';
-import NavBar from './Navbar';
-import Footer from './Footer';
+import NavBar from '../components/Navbar';
+import Footer from '../components/Footer';
 
 const EditTask = () => {
   const { id } = useParams();

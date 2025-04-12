@@ -1,13 +1,13 @@
 // src/App.js
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
-import LoginForm from './components/auth/LoginForm';
-import SignupForm from './components/auth/SignupForm';
-import Home from './components/Home';
-import TaskForm from './components/TaskForms';
-import ViewTask from './components/ViewTask';
-import EditTask from './components/EditTask';
-import ProtectedRoute from './components/ProtectedRoute';
+import LoginForm from './pages/auth/LoginForm';
+import SignupForm from './pages/auth/SignupForm';
+import Home from './pages/Home';
+import TaskForm from './pages/TaskForms';
+import ViewTask from './pages/ViewTask';
+import EditTask from './pages/EditTask';
+import ProtectedRoute from './routes/ProtectedRoute';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 

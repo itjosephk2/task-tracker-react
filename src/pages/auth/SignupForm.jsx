@@ -1,14 +1,12 @@
 import React, { useState } from 'react';
-import { Form, Button, Container, Row, Col, Alert } from 'react-bootstrap';
-import { signup } from './authService';
+import { Form, Button, Container, Row, Col } from 'react-bootstrap';
+import { signup } from '../../services/authService';
 import { Link, useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 
 
 const SignupForm = () => {
   const [formData, setFormData] = useState({ username: '', password: '', password_2: '', });
-  const [error, setError] = useState(null);
-  const [success, setSuccess] = useState(false);
   const navigate = useNavigate();
 
   const handleChange = (e) => {
@@ -17,11 +15,8 @@ const SignupForm = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    setError(null);
-    setSuccess(false);
 
     if (formData.password !== formData.password_2) {
-      setError('Passwords do not match.');
       toast.error('Passwords do not match.');
       return;
     }
@@ -29,7 +24,6 @@ const SignupForm = () => {
 
     try {
       await signup(formData);
-      setSuccess(true);
       toast.success('🎉 Signup successful!');
 
 
@@ -38,7 +32,6 @@ const SignupForm = () => {
         navigate('/login');
       }, 2000);
     } catch (err) {
-      setError('Signup failed. Please try a different username.');
       toast.error('Signup failed.');
     }
   };

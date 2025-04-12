@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Form, Button, Container, Row, Col } from 'react-bootstrap';
-import { login } from './authService';
+import { login } from '../../services/authService';
 import { useNavigate, Link } from 'react-router-dom';
 import { toast } from 'react-toastify';
 
