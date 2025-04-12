@@ -6,7 +6,7 @@ import { toast } from 'react-toastify';
 
 
 const SignupForm = () => {
-  const [formData, setFormData] = useState({ username: '', password: '' });
+  const [formData, setFormData] = useState({ username: '', password: '', password_2: '', });
   const [error, setError] = useState(null);
   const [success, setSuccess] = useState(false);
   const navigate = useNavigate();
@@ -19,6 +19,13 @@ const SignupForm = () => {
     e.preventDefault();
     setError(null);
     setSuccess(false);
+
+    if (formData.password !== formData.password_2) {
+      setError('Passwords do not match.');
+      toast.error('Passwords do not match.');
+      return;
+    }
+    
 
     try {
       await signup(formData);
@@ -63,6 +70,18 @@ const SignupForm = () => {
                 placeholder="Create a password"
                 name="password"
                 value={formData.password}
+                onChange={handleChange}
+                required
+              />
+            </Form.Group>
+
+            <Form.Group className="mb-3" controlId="signupPassword2">
+              <Form.Label>Confirm Password</Form.Label>
+              <Form.Control
+                type="password"
+                placeholder="Create a password"
+                name="password_2"
+                value={formData.password_2}
                 onChange={handleChange}
                 required
               />
