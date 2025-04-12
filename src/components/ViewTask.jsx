@@ -46,10 +46,6 @@ const ViewTask = () => {
     }
   };
 
-  const handleBack = () => {
-    navigate('/home');
-  };
-
   return (
     <div className="d-flex flex-column min-vh-100">
       <NavBar />
@@ -70,7 +66,6 @@ const ViewTask = () => {
                     <strong>Completed:</strong> {task.completed ? 'Yes' : 'No'}
                   </Card.Text>
                   <div className="d-flex flex-wrap gap-2">
-                    <Button variant="secondary" onClick={handleBack}>Back</Button>
                     <Button variant="primary" onClick={handleEdit}>Edit</Button>
                     <Button variant="danger" onClick={() => setShowConfirm(true)}>Delete</Button>
                   </div>
