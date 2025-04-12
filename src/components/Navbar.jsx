@@ -4,10 +4,11 @@ import { useNavigate } from 'react-router-dom';
 
 const NavBar = () => {
   const navigate = useNavigate();
+  const token = localStorage.getItem('token');
 
   const handleLogout = () => {
     localStorage.removeItem('token');
-    navigate('/login');
+    navigate('/');
   };
 
   const goHome = () => {
@@ -17,15 +18,23 @@ const NavBar = () => {
   return (
     <Navbar bg="light" expand="lg" className="mb-4">
       <Container className="d-flex justify-content-between align-items-center">
-        {/* Clickable title (not nested inside a link or button) */}
-        <div onClick={goHome} style={{ cursor: 'pointer' }}>
+        <div
+          onClick={token ? goHome : () => navigate('/')}
+          style={{ cursor: 'pointer' }}
+        >
           <h1 className="m-0">Task Tracker</h1>
         </div>
 
         <Nav>
-          <Button variant="outline-secondary" onClick={handleLogout}>
-            Logout
-          </Button>
+          {token ? (
+            <Button variant="outline-secondary" onClick={handleLogout}>
+              Logout
+            </Button>
+          ) : (
+            <Button variant="outline-primary" onClick={() => navigate('/login')}>
+              Login
+            </Button>
+          )}
         </Nav>
       </Container>
     </Navbar>
