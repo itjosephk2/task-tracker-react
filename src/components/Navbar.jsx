@@ -11,31 +11,39 @@ const NavBar = () => {
     navigate('/');
   };
 
-  const goHome = () => {
-    navigate('/home');
-  };
-
   return (
     <Navbar bg="light" expand="lg" className="mb-4">
-      <Container className="d-flex justify-content-between align-items-center">
-        <div
-          onClick={token ? goHome : () => navigate('/')}
-          style={{ cursor: 'pointer' }}
+      <Container>
+        <Navbar.Brand
+          onClick={() => navigate('/')}
+          style={{ cursor: 'pointer', fontWeight: 'bold' }}
         >
-          <h1 className="m-0">Task Tracker</h1>
-        </div>
+          Task Tracker
+        </Navbar.Brand>
 
-        <Nav>
-          {token ? (
-            <Button variant="outline-secondary" onClick={handleLogout}>
-              Logout
-            </Button>
-          ) : (
-            <Button variant="outline-primary" onClick={() => navigate('/login')}>
-              Login
-            </Button>
-          )}
-        </Nav>
+        <Navbar.Toggle aria-controls="navbar-nav" />
+        <Navbar.Collapse id="navbar-nav" className="justify-content-end">
+          <Nav className="align-items-center">
+            {token && (
+              <Button
+                variant="outline-primary"
+                className="me-2"
+                onClick={() => navigate('/home')}
+              >
+                Tasks
+              </Button>
+            )}
+            {token ? (
+              <Button variant="outline-secondary" onClick={handleLogout}>
+                Logout
+              </Button>
+            ) : (
+              <Button variant="outline-primary" onClick={() => navigate('/login')}>
+                Login
+              </Button>
+            )}
+          </Nav>
+        </Navbar.Collapse>
       </Container>
     </Navbar>
   );
