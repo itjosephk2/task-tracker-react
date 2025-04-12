@@ -33,6 +33,7 @@ const LandingPage = () => {
                     <li>Create, edit, and delete tasks</li>
                     <li>Mark tasks as completed</li>
                     <li>Set due dates to stay on track</li>
+                    <li>Get dynamic feedback based on your due date</li>
                     <li>Secure login/logout system</li>
                     <li>Responsive design for mobile and desktop</li>
                   </ul>
