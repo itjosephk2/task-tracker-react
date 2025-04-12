@@ -1,4 +1,5 @@
   import React, { useEffect, useState } from 'react';
+  import { toast } from 'react-toastify';
   import axios from 'axios';
   import { Container, ListGroup, Spinner, Alert, Button, Badge } from 'react-bootstrap';
   import { useNavigate, Link } from 'react-router-dom';
@@ -29,6 +30,11 @@
 
     useEffect(() => {
       fetchTasks();
+      const message = localStorage.getItem('toastMessage');
+      if (message) {
+        toast.success(message);
+        localStorage.removeItem('toastMessage'); // so it only shows once
+      }
     }, []);
 
     const goToCreateTask = () => {

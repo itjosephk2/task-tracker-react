@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
-import { Form, Button, Container, Row, Col, Alert } from 'react-bootstrap';
+import { Form, Button, Container, Row, Col } from 'react-bootstrap';
 import { login } from './authService';
 import { useNavigate, Link } from 'react-router-dom';
+import { toast } from 'react-toastify';
 
 const LoginForm = () => {
   const [formData, setFormData] = useState({ username: '', password: '' });
-  const [error, setError] = useState(null);
   const navigate = useNavigate();
 
   const handleChange = (e) => {
@@ -14,17 +14,20 @@ const LoginForm = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    setError(null);
 
     try {
       const response = await login(formData);
       const token = response.data.token;
+    
       localStorage.setItem('token', token);
+      localStorage.setItem('toastMessage', '🎉 Welcome back!');
+    
       console.log('Logged in!');
       navigate('/home');
     } catch (err) {
-      setError('Login failed. Please check your credentials.');
+      toast.error('Login failed. Please check your credentials.');
     }
+    
   };
 
   return (
@@ -32,7 +35,6 @@ const LoginForm = () => {
       <Row className="justify-content-md-center">
         <Col md={6}>
           <h2 className="mb-4">Login</h2>
-          {error && <Alert variant="danger">{error}</Alert>}
           <Form onSubmit={handleSubmit}>
             <Form.Group className="mb-3" controlId="loginUsername">
               <Form.Label>Username</Form.Label>
@@ -43,6 +45,7 @@ const LoginForm = () => {
                 value={formData.username}
                 onChange={handleChange}
                 required
+                autoComplete="username" 
               />
             </Form.Group>
 
@@ -55,6 +58,7 @@ const LoginForm = () => {
                 value={formData.password}
                 onChange={handleChange}
                 required
+                autoComplete="current-password"
               />
             </Form.Group>
 
