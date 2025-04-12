@@ -16,8 +16,8 @@ const LoginForm = () => {
     e.preventDefault();
 
     try {
-      const response = await login(formData);
-      const token = response.data.token;
+      const data = await login(formData);
+      const token = data.token;
     
       localStorage.setItem('token', token);
       localStorage.setItem('toastMessage', '🎉 Welcome back!');
