@@ -1,12 +1,12 @@
 import React, { useContext } from 'react';
 import { Container, Navbar, Nav, Button } from 'react-bootstrap';
 import { useNavigate } from 'react-router-dom';
-import { ThemeContext } from '../context/ThemeContext'; // ✅ import ThemeContext
+import { ThemeContext } from '../context/ThemeContext';
 
 const NavBar = () => {
   const navigate = useNavigate();
   const token = localStorage.getItem('token');
-  const { darkMode, setDarkMode } = useContext(ThemeContext); // ✅ use the theme context
+  const { darkMode, setDarkMode } = useContext(ThemeContext);
 
   const handleLogout = () => {
     localStorage.removeItem('token');
@@ -15,8 +15,8 @@ const NavBar = () => {
 
   return (
     <Navbar
-      bg={darkMode ? 'dark' : 'light'}          // ✅ dynamic background
-      variant={darkMode ? 'dark' : 'light'}     // ✅ match text color
+      bg={darkMode ? 'dark' : 'light'}
+      variant={darkMode ? 'dark' : 'light'} 
       expand="lg"
       className="mb-4"
     >
@@ -57,14 +57,17 @@ const NavBar = () => {
                 Login
               </Button>
             )}
-            {/* ✅ Dark mode toggle button */}
+            {/* Dark mode toggle button */}
             <Button
               variant={darkMode ? 'light' : 'dark'}
               size="sm"
               onClick={() => setDarkMode(!darkMode)}
+              className="rounded-circle d-flex justify-content-center align-items-center"
+              style={{ width: '36px', height: '36px', fontSize: '1rem' }}
             >
-              {darkMode ? '☀️ Light' : '🌙 Dark'}
+              {darkMode ? '☀️' : '🌙'}
             </Button>
+
           </Nav>
         </Navbar.Collapse>
       </Container>
