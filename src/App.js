@@ -5,7 +5,7 @@ import LandingPage from './pages/LandingPage';
 import LoginForm from './pages/auth/LoginForm';
 import SignupForm from './pages/auth/SignupForm';
 import Home from './pages/Home/Home';
-import TaskForm from './pages/TaskForms';
+import CreateTask from './pages/CreateTask';
 import ViewTask from './pages/ViewTask';
 import EditTask from './pages/EditTask';
 import ProtectedRoute from './routes/ProtectedRoute';
@@ -38,7 +38,7 @@ function App() {
           path="/create-task"
           element={
             <ProtectedRoute>
-              <TaskForm />
+              <CreateTask />
             </ProtectedRoute>
           }
         />
