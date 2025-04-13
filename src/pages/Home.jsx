@@ -96,7 +96,7 @@ const Home = () => {
               Create Task
             </Button>
           </div>
-          <div className="row fw-bold px-3 py-2 border-bottom d-none d-md-flex">
+          <div className="row fw-bold px-3 py-2 d-none d-md-flex">
             <div className="col-md-3">Title</div>
             <div className="col-md-4">Description</div>
             <div className="col-md-2">Due Date</div>
