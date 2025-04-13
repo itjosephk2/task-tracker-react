@@ -120,7 +120,7 @@ const Home = () => {
                   as={Link}
                   to={`/tasks/${task.id}`}
                   className={`px-3 py-2 list-group-item-action text-decoration-none d-block task-box ${
-                    darkMode ? 'task-box-dark' : 'text-dark bg-white'
+                    darkMode ? 'task-box-dark' : 'task-box-light'
                   }`}
                 >     
                   <div className="row align-items-center text-wrap">
