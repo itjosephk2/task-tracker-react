@@ -1,7 +1,17 @@
 import React, { useEffect, useState, useContext } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import axios from 'axios';
-import { Container, Button, Spinner, Alert, Card, Modal, Row, Col } from 'react-bootstrap';
+import {
+  Container,
+  Button,
+  Spinner,
+  Alert,
+  Card,
+  Modal,
+  Row,
+  Col,
+  Badge
+} from 'react-bootstrap';
 import API_BASE_URL, { getAuthHeaders } from '../../api';
 import NavBar from '../../components/Navbar/Navbar';
 import Footer from '../../components/Footer/Footer';
@@ -50,10 +60,13 @@ const ViewTask = () => {
     }
   };
 
+  const isOverdue =
+    task && !task.completed && task.due_date && new Date(task.due_date) < new Date();
+
   return (
     <div className="d-flex flex-column min-vh-100">
       <NavBar />
-      <main className="flex-fill">
+      <main className="flex-fill fade-in">
         <Container className={`mt-5 mb-5 ${darkMode ? 'dark-card' : ''}`}>
           {loading ? (
             <Spinner animation="border" />
@@ -62,15 +75,59 @@ const ViewTask = () => {
           ) : (
             <Row className="justify-content-center">
               <Col xs={12} sm={10} md={8} lg={6}>
-                <Card>
-                  <Card.Body>
-                    <Card.Title>{task.title}</Card.Title>
-                    <Card.Text>
-                      <strong>Description:</strong> {task.description || 'None'}<br />
-                      <strong>Due Date:</strong> {task.due_date || 'None'}<br />
-                      <strong>Completed:</strong> {task.completed ? 'Yes' : 'No'}
+                <Button
+                  variant="secondary"
+                  size="sm"
+                  className="mb-3"
+                  onClick={() => navigate('/home')}
+                >
+                  ← Back to Tasks
+                </Button>
+
+                <Card className="fade-in mb-5">
+                  <Card.Body className="px-2 px-md-3 px-lg-4">
+                    <div className="d-flex justify-content-between align-items-start mb-3">
+                      <Card.Title className="mb-0">{task.title}</Card.Title>
+                      <Badge
+                        bg={
+                          task.completed
+                            ? 'success'
+                            : isOverdue
+                            ? 'danger'
+                            : 'warning'
+                        }
+                        pill
+                      >
+                        {task.completed
+                          ? 'Completed'
+                          : isOverdue
+                          ? 'Overdue'
+                          : 'In Progress'}
+                      </Badge>
+                    </div>
+
+                    <hr />
+
+                    <Card.Text className="mb-3 scroll-box">
+                      <strong>✏️ Description:</strong><br />
+                      {task.description || 'No description provided.'}
                     </Card.Text>
-                    <div className="d-flex flex-wrap gap-2">
+
+                    <Card.Text className="mb-3">
+                      <strong>📅 Due Date:</strong><br />
+                      {task.due_date || 'Not set'}
+                    </Card.Text>
+
+                    <Card.Text className="mb-3">
+                      <strong>📌 Status:</strong><br />
+                      {task.completed
+                        ? '✅ Done'
+                        : isOverdue
+                        ? '❗ Overdue'
+                        : '⏳ Not Done'}
+                    </Card.Text>
+
+                    <div className="d-flex justify-content-end gap-3 mt-4">
                       <Button variant="primary" onClick={handleEdit}>Edit</Button>
                       <Button variant="danger" onClick={() => setShowConfirm(true)}>Delete</Button>
                     </div>
