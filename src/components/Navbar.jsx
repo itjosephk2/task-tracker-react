@@ -1,30 +1,25 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Container, Navbar, Nav, Button } from 'react-bootstrap';
 import { useNavigate } from 'react-router-dom';
+import { ThemeContext } from '../context/ThemeContext'; // ✅ import ThemeContext
 
-/**
- * Navigation bar component displayed at the top of the app.
- * Shows navigation options based on user authentication state.
- *
- * - If logged in, shows "Tasks" and "Logout" buttons.
- * - If not logged in, shows a "Login" button.
- *
- * @returns {JSX.Element} The navigation bar.
- */
 const NavBar = () => {
   const navigate = useNavigate();
   const token = localStorage.getItem('token');
+  const { darkMode, setDarkMode } = useContext(ThemeContext); // ✅ use the theme context
 
-  /**
-   * Handles user logout by removing the auth token and redirecting to the landing page.
-   */
   const handleLogout = () => {
     localStorage.removeItem('token');
     navigate('/');
   };
 
   return (
-    <Navbar bg="light" expand="lg" className="mb-4">
+    <Navbar
+      bg={darkMode ? 'dark' : 'light'}          // ✅ dynamic background
+      variant={darkMode ? 'dark' : 'light'}     // ✅ match text color
+      expand="lg"
+      className="mb-4"
+    >
       <Container>
         <Navbar.Brand
           onClick={() => navigate('/')}
@@ -38,7 +33,7 @@ const NavBar = () => {
           <Nav className="align-items-center">
             {token && (
               <Button
-                variant="outline-primary"
+                variant={darkMode ? 'outline-light' : 'outline-primary'}
                 className="me-2"
                 onClick={() => navigate('/home')}
               >
@@ -46,14 +41,30 @@ const NavBar = () => {
               </Button>
             )}
             {token ? (
-              <Button variant="outline-secondary" onClick={handleLogout}>
+              <Button
+                variant={darkMode ? 'outline-light' : 'outline-secondary'}
+                className="me-2"
+                onClick={handleLogout}
+              >
                 Logout
               </Button>
             ) : (
-              <Button variant="outline-primary" onClick={() => navigate('/login')}>
+              <Button
+                variant={darkMode ? 'outline-light' : 'outline-primary'}
+                className="me-2"
+                onClick={() => navigate('/login')}
+              >
                 Login
               </Button>
             )}
+            {/* ✅ Dark mode toggle button */}
+            <Button
+              variant={darkMode ? 'light' : 'dark'}
+              size="sm"
+              onClick={() => setDarkMode(!darkMode)}
+            >
+              {darkMode ? '☀️ Light' : '🌙 Dark'}
+            </Button>
           </Nav>
         </Navbar.Collapse>
       </Container>
