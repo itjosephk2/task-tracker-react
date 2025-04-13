@@ -1,0 +1,15 @@
+/* ViewTask.css */
+.dark-card .card {
+    background-color: #2e2e2e;
+    color: #f0f0f0;
+    border: 1px solid #555;
+  }
+  
+  .dark-card .card-title {
+    color: #ffffff;
+  }
+  
+  .dark-card .card-text {
+    color: #dddddd;
+  }
+  

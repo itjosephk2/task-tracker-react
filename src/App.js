@@ -6,7 +6,7 @@ import LoginForm from './pages/auth/LoginForm';
 import SignupForm from './pages/auth/SignupForm';
 import Home from './pages/Home/Home';
 import CreateTask from './pages/CreateTask';
-import ViewTask from './pages/ViewTask';
+import ViewTask from './pages/ViewTask/ViewTask';
 import EditTask from './pages/EditTask';
 import ProtectedRoute from './routes/ProtectedRoute';
 import { ToastContainer } from 'react-toastify';
