@@ -19,7 +19,7 @@ const NavBar = () => {
       bg={darkMode ? '' : 'light'}
       variant={darkMode ? 'dark' : 'light'}
       expand="lg"
-      className={`mb-4 py-3 ${darkMode ? 'navbar-dark-mode' : ''}`}
+      className={`mb-4 py-3 ${darkMode ? 'navbar-dark-mode' : 'navbar-light-custom'}`}
     >
       <Container>
         <Navbar.Brand

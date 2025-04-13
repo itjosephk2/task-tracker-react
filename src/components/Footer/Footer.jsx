@@ -15,7 +15,7 @@ const Footer = () => {
   return (
     <footer
       className={`text-center py-3 fixed-bottom ${
-        darkMode ? 'footer-dark text-light' : 'bg-light text-muted'
+        darkMode ? 'footer-dark' : 'footer-light'
       }`}
     >
       <Container>
