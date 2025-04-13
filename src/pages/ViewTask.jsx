@@ -3,8 +3,8 @@ import { useParams, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import { Container, Button, Spinner, Alert, Card, Modal } from 'react-bootstrap';
 import API_BASE_URL, { getAuthHeaders } from '../api';
-import NavBar from '../components/Navbar';
-import Footer from '../components/Footer';
+import NavBar from '../components/Navbar/Navbar';
+import Footer from '../components/Footer/Footer';
 
 /**
  * ViewTask component displays the details of a single task.

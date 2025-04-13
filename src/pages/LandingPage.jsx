@@ -1,8 +1,8 @@
 import React from 'react';
 import { Container, Button, Row, Col, Card } from 'react-bootstrap';
 import { useNavigate } from 'react-router-dom';
-import NavBar from '../components/Navbar';
-import Footer from '../components/Footer';
+import NavBar from '../components/Navbar/Navbar';
+import Footer from '../components/Footer/Footer';
 
 /**
  * LandingPage component that serves as the homepage of the app.

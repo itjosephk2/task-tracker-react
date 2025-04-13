@@ -2,8 +2,8 @@ import React, { useState } from 'react';
 import { Form, Button, Alert, Container, Row, Col } from 'react-bootstrap';
 import API_BASE_URL, { getAuthHeaders } from '../api';
 import axios from 'axios';
-import NavBar from '../components/Navbar';
-import Footer from '../components/Footer';
+import NavBar from '../components/Navbar/Navbar';
+import Footer from '../components/Footer/Footer';
 import { toast } from 'react-toastify';
 
 /**

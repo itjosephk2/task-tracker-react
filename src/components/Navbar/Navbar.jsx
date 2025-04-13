@@ -1,7 +1,8 @@
 import React, { useContext } from 'react';
 import { Container, Navbar, Nav, Button } from 'react-bootstrap';
 import { useNavigate } from 'react-router-dom';
-import { ThemeContext } from '../context/ThemeContext';
+import { ThemeContext } from '../../context/ThemeContext';
+import './Navbar.css';
 
 const NavBar = () => {
   const navigate = useNavigate();
@@ -15,10 +16,10 @@ const NavBar = () => {
 
   return (
     <Navbar
-      bg={darkMode ? 'dark' : 'light'}
-      variant={darkMode ? 'dark' : 'light'} 
+      bg={darkMode ? '' : 'light'}
+      variant={darkMode ? 'dark' : 'light'}
       expand="lg"
-      className="mb-4"
+      className={`mb-4 py-3 ${darkMode ? 'navbar-dark-mode' : ''}`}
     >
       <Container>
         <Navbar.Brand

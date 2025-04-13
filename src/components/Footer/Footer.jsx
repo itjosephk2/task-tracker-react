@@ -1,5 +1,7 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Container } from 'react-bootstrap';
+import { ThemeContext } from '../../context/ThemeContext';
+import './Footer.css'; 
 
 /**
  * Footer component displayed at the bottom of the page.
@@ -8,10 +10,16 @@ import { Container } from 'react-bootstrap';
  * @returns {JSX.Element} The footer element.
  */
 const Footer = () => {
+  const { darkMode } = useContext(ThemeContext);  
+
   return (
-    <footer className="bg-light text-center py-3 fixed-bottom border-top">
+    <footer
+      className={`text-center py-3 fixed-bottom ${
+        darkMode ? 'footer-dark text-light' : 'bg-light text-muted'
+      }`}
+    >
       <Container>
-        <small className="text-muted">
+        <small>
           &copy; {new Date().getFullYear()} Task Tracker. All rights reserved.
         </small>
       </Container>

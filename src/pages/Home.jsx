@@ -3,8 +3,8 @@ import { toast } from 'react-toastify';
 import axios from 'axios';
 import { Container, ListGroup, Spinner, Alert, Button, Badge } from 'react-bootstrap';
 import { useNavigate, Link } from 'react-router-dom';
-import NavBar from '../components/Navbar';
-import Footer from '../components/Footer';
+import NavBar from '../components/Navbar/Navbar';
+import Footer from '../components/Footer/Footer';
 
 /**
  * Home component that displays the user's list of tasks.
