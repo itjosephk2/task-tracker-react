@@ -35,7 +35,7 @@ const NavBar = () => {
             {token && (
               <Button
                 variant={darkMode ? 'outline-light' : 'outline-primary'}
-                className="me-2"
+                className="me-2 mb-3"
                 onClick={() => navigate('/home')}
               >
                 Tasks
@@ -44,7 +44,7 @@ const NavBar = () => {
             {token ? (
               <Button
                 variant={darkMode ? 'outline-light' : 'outline-secondary'}
-                className="me-2"
+                className="me-2 mb-3"
                 onClick={handleLogout}
               >
                 Logout
@@ -52,7 +52,7 @@ const NavBar = () => {
             ) : (
               <Button
                 variant={darkMode ? 'outline-light' : 'outline-primary'}
-                className="me-2"
+                className="me-2 mb-2"
                 onClick={() => navigate('/login')}
               >
                 Login
@@ -63,7 +63,7 @@ const NavBar = () => {
               variant={darkMode ? 'light' : 'dark'}
               size="sm"
               onClick={() => setDarkMode(!darkMode)}
-              className="rounded-circle d-flex justify-content-center align-items-center"
+              className="rounded-circle d-flex justify-content-center align-items-center mb-2"
               style={{ width: '36px', height: '36px', fontSize: '1rem' }}
             >
               {darkMode ? '☀️' : '🌙'}
