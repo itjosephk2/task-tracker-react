@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import axios from 'axios';
-import { Container } from 'react-bootstrap';
+import { Container, Row, Col } from 'react-bootstrap';
 import API_BASE_URL, { getAuthHeaders } from '../api';
 import NavBar from '../components/Navbar/Navbar';
 import Footer from '../components/Footer/Footer';
@@ -58,14 +58,18 @@ const EditTask = () => {
       <NavBar />
       <main className="flex-fill">
         <Container className="mt-5 mb-5">
-          <h2>Edit Task</h2>
-          <TaskFormFields
-            taskData={task}
-            onChange={handleChange}
-            onSubmit={handleSubmit}
-            buttonLabel="Save Changes"
-            error={error}
-          />
+          <Row className="justify-content-center">
+            <Col xs={12} sm={10} md={8} lg={6}>
+              <h3 className="mb-4 text-center">Edit Task</h3>
+              <TaskFormFields
+                taskData={task}
+                onChange={handleChange}
+                onSubmit={handleSubmit}
+                buttonLabel="Save Changes"
+                error={error}
+              />
+            </Col>
+          </Row>
         </Container>
       </main>
       <Footer />
