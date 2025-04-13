@@ -129,7 +129,7 @@ const Home = () => {
                     </div>
 
                     <div className="d-none d-md-block col-md-4">
-                      <small>{task.description}</small>
+                      <small className="task-description-preview">{task.description}</small>
                     </div>
 
                     <div className="d-none d-md-block col-md-2">
