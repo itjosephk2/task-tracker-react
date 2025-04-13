@@ -4,7 +4,7 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import LandingPage from './pages/LandingPage';
 import LoginForm from './pages/auth/LoginForm';
 import SignupForm from './pages/auth/SignupForm';
-import Home from './pages/Home';
+import Home from './pages/Home/Home';
 import TaskForm from './pages/TaskForms';
 import ViewTask from './pages/ViewTask';
 import EditTask from './pages/EditTask';

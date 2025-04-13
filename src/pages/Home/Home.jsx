@@ -1,10 +1,12 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useContext } from 'react';
+import { ThemeContext } from '../../context/ThemeContext';
 import { toast } from 'react-toastify';
 import axios from 'axios';
 import { Container, ListGroup, Spinner, Alert, Button, Badge } from 'react-bootstrap';
 import { useNavigate, Link } from 'react-router-dom';
-import NavBar from '../components/Navbar/Navbar';
-import Footer from '../components/Footer/Footer';
+import NavBar from '../../components/Navbar/Navbar';
+import Footer from '../../components/Footer/Footer';
+import './Home.css';
 
 /**
  * Home component that displays the user's list of tasks.
@@ -17,6 +19,7 @@ const Home = () => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   const navigate = useNavigate();
+  const { darkMode } = useContext(ThemeContext);
 
   /**
    * Fetches all tasks from the API and updates the task state.
@@ -49,7 +52,7 @@ const Home = () => {
     const message = localStorage.getItem('toastMessage');
     if (message) {
       toast.success(message);
-      localStorage.removeItem('toastMessage'); // so it only shows once
+      localStorage.removeItem('toastMessage'); 
     }
   }, []);
 
@@ -116,8 +119,10 @@ const Home = () => {
                   key={task.id}
                   as={Link}
                   to={`/tasks/${task.id}`}
-                  className="px-3 py-2 list-group-item-action text-dark text-decoration-none d-block"
-                >
+                  className={`px-3 py-2 list-group-item-action text-decoration-none d-block task-box ${
+                    darkMode ? 'task-box-dark' : 'text-dark bg-white'
+                  }`}
+                >     
                   <div className="row align-items-center text-wrap">
                     <div className="col-6 col-md-3">
                       <span className="fw-bold">{task.title}</span>
