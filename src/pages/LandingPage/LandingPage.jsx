@@ -3,6 +3,7 @@ import { Container, Button, Row, Col, Card } from 'react-bootstrap';
 import { useNavigate } from 'react-router-dom';
 import NavBar from '../../components/Navbar/Navbar';
 import Footer from '../../components/Footer/Footer';
+import './LandingPage.css'
 
 /**
  * LandingPage component that serves as the homepage of the app.

@@ -2,10 +2,11 @@ import React, { useEffect, useState } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import { Container, Row, Col } from 'react-bootstrap';
-import API_BASE_URL, { getAuthHeaders } from '../api';
-import NavBar from '../components/Navbar/Navbar';
-import Footer from '../components/Footer/Footer';
-import TaskFormFields from '../components/TaskFormFields/TaskFormFields';
+import API_BASE_URL, { getAuthHeaders } from '../../api';
+import NavBar from '../../components/Navbar/Navbar';
+import Footer from '../../components/Footer/Footer';
+import TaskFormFields from '../../components/TaskFormFields/TaskFormFields';
+import './EditTask.css'
 
 const EditTask = () => {
   const { id } = useParams();

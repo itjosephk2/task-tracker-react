@@ -1,11 +1,12 @@
 import React, { useState } from 'react';
 import { Container, Row, Col } from 'react-bootstrap';
-import API_BASE_URL, { getAuthHeaders } from '../api';
+import API_BASE_URL, { getAuthHeaders } from '../../api';
 import axios from 'axios';
-import NavBar from '../components/Navbar/Navbar';
-import Footer from '../components/Footer/Footer';
-import TaskFormFields from '../components/TaskFormFields/TaskFormFields';
+import NavBar from '../../components/Navbar/Navbar';
+import Footer from '../../components/Footer/Footer';
+import TaskFormFields from '../../components/TaskFormFields/TaskFormFields';
 import { toast } from 'react-toastify';
+import './CreateTask.css'
 
 const CreateTask = ({ onTaskCreated }) => {
   const [formData, setFormData] = useState({
