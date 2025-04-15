@@ -13,7 +13,7 @@ This is the front-end React application for the **Task Tracker** project, built 
 - [Live Site](#live-site)
 - [Technologies Used](#technologies-used)
 - [Features](#features)
-- [UX & UI Design](#ux--ui-design)
+- [UX Design Process & Layout](#ux-design-process--layout)
 - [Manual Testing](#manual-testing)
 - [Deployment](#deployment)
 - [File Structure](#file-structure)
