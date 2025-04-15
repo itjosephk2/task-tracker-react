@@ -1,3 +1,11 @@
+/**
+ * ViewTask Component
+ * 
+ * This component displays the details of a single task, allowing the user
+ * to view its status, edit it, or delete it with a confirmation prompt.
+ * It fetches task data from the API using the task ID from the URL params.
+ */
+
 import React, { useEffect, useState, useContext } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import axios from 'axios';
@@ -12,6 +20,7 @@ import {
   Col,
   Badge
 } from 'react-bootstrap';
+
 import API_BASE_URL, { getAuthHeaders } from '../../api';
 import NavBar from '../../components/Navbar/Navbar';
 import Footer from '../../components/Footer/Footer';
@@ -19,15 +28,30 @@ import { ThemeContext } from '../../context/ThemeContext';
 import './ViewTask.css';
 
 const ViewTask = () => {
+  // Extract task ID from route params
   const { id } = useParams();
+
+  // Navigate hook for routing programmatically
   const navigate = useNavigate();
+
+  // Theme context to apply dark mode styling
   const { darkMode } = useContext(ThemeContext);
 
+  /** @type {[object|null, Function]} Task state and setter */
   const [task, setTask] = useState(null);
+
+  /** @type {[boolean, Function]} Loading state for API call */
   const [loading, setLoading] = useState(true);
+
+  /** @type {[string|null, Function]} Error state for displaying alerts */
   const [error, setError] = useState(null);
+
+  /** @type {[boolean, Function]} State for showing the delete confirmation modal */
   const [showConfirm, setShowConfirm] = useState(false);
 
+  /**
+   * Fetch the task from the API on component mount
+   */
   useEffect(() => {
     const fetchTask = async () => {
       try {
@@ -45,10 +69,16 @@ const ViewTask = () => {
     fetchTask();
   }, [id]);
 
+  /**
+   * Navigate to the task edit page
+   */
   const handleEdit = () => {
     navigate(`/tasks/${id}/edit`);
   };
 
+  /**
+   * Handle task deletion
+   */
   const handleDelete = async () => {
     try {
       await axios.delete(`${API_BASE_URL}tasks/${id}/`, {
@@ -60,6 +90,10 @@ const ViewTask = () => {
     }
   };
 
+  /**
+   * Determine if task is overdue
+   * @type {boolean}
+   */
   const isOverdue =
     task && !task.completed && task.due_date && new Date(task.due_date) < new Date();
 
