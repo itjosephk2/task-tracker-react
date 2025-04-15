@@ -69,12 +69,61 @@ Task Tracker is a productivity application that allows users to:
 
 ---
 
-## UX & UI Design
+## UX Design Process & Layout
 
-- Wireframes and mockups designed before implementation.
-- Accessible forms and keyboard-navigable UI.
-- Buttons and navigation are always visible or accessible on relevant pages.
-- Current login state is visible and can log out from any page.
+The UX design for the Task Tracker frontend was planned prior to development to ensure a clear, intuitive, and responsive user experience. The design process included early wireframes, layout planning, and a strong focus on usability principles such as clarity, accessibility, and mobile responsiveness.
+
+### Design Process
+
+Before coding began, low-fidelity wireframes were created to define the core structure and user flow of the application. These wireframes guided the layout of key components such as the navigation bar, task list, and task creation interface. They ensured the UI would be both functional and visually clean across devices.
+
+The design focused on:
+- Presenting tasks in a readable, table-based format
+- Making the most important actions (like creating or marking tasks as done) immediately visible
+- Ensuring users could easily log in/out and navigate with minimal effort
+
+Wireframes and visual diagrams were used throughout the process to validate layout decisions and ensure consistency from design to deployment.
+
+> *Wireframe Example: Homepage Task View*  
+> ![Task Tracker Wireframe](public/assets/wireframe.png)
+
+### Navigation
+
+- A fixed top navigation bar includes the app title, a "Tasks" button, and a "Logout" button.
+- Persistent navigation ensures users can easily move through the app without confusion.
+
+### Task Table
+
+- Tasks are displayed in a responsive table format with the following columns: **Title**, **Description**, **Due Date**, **Status**, and a **Done checkbox**.
+- Color-coded badges and checkboxes provide quick visual indicators of task completion.
+
+### Task Creation
+
+- A prominent "Create Task" button is placed near the top-right of the task list, following common UI patterns for action placement.
+
+### Responsive Design
+
+- Built using Bootstrap's responsive grid and utility classes.
+- Layout adjusts cleanly across mobile, tablet, and desktop screen sizes.
+
+### Accessibility
+
+- Forms use appropriate labels and validation.
+- Keyboard navigability and strong color contrast were considered to support accessibility.
+
+### Visual Theme
+
+- A clean dark-mode inspired theme helps reduce eye strain and makes key UI elements pop.
+- Green is used for completed tasks, yellow for pending, and blue for primary actions — offering clear visual feedback without overwhelming the user.
+
+---
+
+### From Wireframes to Final UI
+
+All core design elements proposed in the original wireframes were implemented in the final application. The structure, layout, and interaction flow were preserved, and decisions were continuously validated through manual testing to ensure the UI aligned with user expectations.
+
+This structured approach demonstrates a full UX design process — from planning, diagramming, and wireframing to final implementation and deployment.
+
 
 ---
 
