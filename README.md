@@ -19,6 +19,7 @@ This is the front-end React application for the **Task Tracker** project, built 
 - [File Structure](#file-structure)
 - [Testing](#testing)
 - [Future Enhancements](#future-enhancements)
+- [Role of Front-End Developers in Decoupled Applications](#role-of-front-end-developers-in-decoupled-applications)
 - [Acknowledgements](#acknowledgements)
 
 ---
