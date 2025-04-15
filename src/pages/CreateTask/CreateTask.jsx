@@ -14,7 +14,6 @@ import NavBar from '../../components/Navbar/Navbar';
 import Footer from '../../components/Footer/Footer';
 import TaskFormFields from '../../components/TaskFormFields/TaskFormFields';
 import { toast } from 'react-toastify';
-import './CreateTask.css';
 
 /**
  * @component

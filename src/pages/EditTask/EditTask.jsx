@@ -13,7 +13,6 @@ import API_BASE_URL, { getAuthHeaders } from '../../api';
 import NavBar from '../../components/Navbar/Navbar';
 import Footer from '../../components/Footer/Footer';
 import TaskFormFields from '../../components/TaskFormFields/TaskFormFields';
-import './EditTask.css';
 
 const EditTask = () => {
   // Extract task ID from URL parameters
