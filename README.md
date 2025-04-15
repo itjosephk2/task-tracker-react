@@ -78,6 +78,22 @@ Task Tracker is a productivity application that allows users to:
 
 ---
 
+## Agile Development Process
+
+This project was developed using an Agile-inspired, iterative approach. Features were built incrementally and tested manually throughout each development cycle. Early wireframes and planning helped guide the initial structure, but refinements were made continuously based on feedback and testing.
+
+Key aspects of Agile followed:
+- **Incremental development**: Core functionality (authentication, task management) was prioritized and implemented early.
+- **Continuous testing**: Manual testing was carried out during and after each feature to ensure a reliable user experience.
+- **Adaptability**: UI and UX decisions evolved based on what worked well in practice, not just in theory.
+- **Feature-focused sprints**: Each session focused on completing a feature end-to-end (e.g. task creation, editing, or deletion).
+
+Although developed solo, this project emulates Agile workflows through iteration, responsiveness to change, and a focus on delivering working software at every stage.
+
+View the [GitHub Project Kanban Board](https://github.com/users/itjosephk2/projects/16) used to manage feature progress and tasks.
+
+--
+
 ## UX Design Process & Layout
 
 The UX design for the Task Tracker frontend was planned prior to development to ensure a clear, intuitive, and responsive user experience. The design process included early wireframes, layout planning, and a strong focus on usability principles such as clarity, accessibility, and mobile responsiveness.
