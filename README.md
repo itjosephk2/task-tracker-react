@@ -93,7 +93,7 @@ The design focused on:
 Wireframes and visual diagrams were used throughout the process to validate layout decisions and ensure consistency from design to deployment.
 
 > *Wireframe Example: Homepage Task View*  
-> ![Task Tracker Wireframe](public/assets/wireframe.png)
+> ![Task Tracker Wireframe](public/assets/wireframe.jpg)
 
 ### Navigation
 
