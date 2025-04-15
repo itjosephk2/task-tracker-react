@@ -27,6 +27,7 @@ This is the front-end React application for the **Task Tracker** project, built 
 - [File Structure](#file-structure)
 - [Testing](#testing)
 - [Future Enhancements](#future-enhancements)
+- [Dependencies Used](#dependencies-used)
 - [Role of Front-End Developers in Decoupled Applications](#role-of-front-end-developers-in-decoupled-applications)
 - [Acknowledgements](#acknowledgements)
 
@@ -201,6 +202,28 @@ REACT_APP_API_BASE_URL=https://task-tracker-drf-e7e43a44f5b5.herokuapp.com/api/
 - Filter/sort tasks by due date and completion.
 - Create task list groups and priority
 - Follow Users and make tasks list groups private or public
+
+---
+
+## Dependencies Used
+
+This project includes a few key libraries beyond core React to enhance functionality, styling, and user experience:
+
+- **axios**  
+  Used to make HTTP requests to your Django REST API. It simplifies GET, POST, PUT, and DELETE requests and handles things like headers and error responses more cleanly than `fetch`.
+
+- **bootstrap**  
+  Provides a set of CSS styles and layout utilities to quickly build a responsive and consistent UI.
+
+- **react-bootstrap**  
+  Allows you to use Bootstrap components (like buttons, modals, alerts) directly as React components, making styling easier and more React-friendly.
+
+- **react-router-dom**  
+  Used to handle routing in your app — for navigating between pages like Home, Create Task, View Task, etc., without reloading the page.
+
+- **react-toastify**  
+  Adds toast notifications to your app — for example, when a task is created, updated, or deleted, you can show success or error messages in a non-intrusive way.
+
 
 ---
 

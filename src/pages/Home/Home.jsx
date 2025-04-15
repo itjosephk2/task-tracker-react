@@ -10,20 +10,25 @@ import './Home.css';
 
 /**
  * Home component that displays the user's list of tasks.
- * Allows task creation, navigation to task detail pages, and marking tasks as completed.
+ * Supports sorting by columns, marking tasks as done, and navigation to create/view pages.
  *
- * @returns {JSX.Element} The home page with task list.
+ * @component
+ * @returns {JSX.Element} Rendered Home page
  */
 const Home = () => {
   const [tasks, setTasks] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+  const [sortConfig, setSortConfig] = useState({ key: 'due_date', direction: 'asc' });
   const navigate = useNavigate();
   const { darkMode } = useContext(ThemeContext);
 
   /**
-   * Fetches all tasks from the API and updates the task state.
-   * Shows an error alert if the request fails.
+   * Fetches all tasks from the API and updates the task list.
+   * Displays error if loading fails.
+   *
+   * @async
+   * @function
    */
   const fetchTasks = async () => {
     try {
@@ -45,29 +50,29 @@ const Home = () => {
   };
 
   /**
-   * Runs once on component mount to fetch tasks and display any stored toast messages.
+   * Loads tasks and any toast messages on initial render.
    */
   useEffect(() => {
     fetchTasks();
     const message = localStorage.getItem('toastMessage');
     if (message) {
       toast.success(message);
-      localStorage.removeItem('toastMessage'); 
+      localStorage.removeItem('toastMessage');
     }
   }, []);
 
   /**
-   * Navigates the user to the Create Task form page.
+   * Navigates the user to the create task form.
    */
   const goToCreateTask = () => {
     navigate('/create-task');
   };
 
   /**
-   * Sends a PATCH request to toggle a task's completed status.
+   * Sends PATCH request to update task completion status.
    *
-   * @param {number} taskId - The ID of the task to update.
-   * @param {boolean} isCompleted - The new completion status.
+   * @param {number} taskId - Task ID
+   * @param {boolean} isCompleted - New completion status
    */
   const markAsCompleted = async (taskId, isCompleted) => {
     const token = localStorage.getItem('token');
@@ -88,6 +93,64 @@ const Home = () => {
     }
   };
 
+  /**
+   * Updates sort configuration based on clicked column.
+   *
+   * @param {string} key - Field to sort by
+   */
+  const handleSort = (key) => {
+    setSortConfig(prev => ({
+      key,
+      direction: prev.key === key && prev.direction === 'asc' ? 'desc' : 'asc'
+    }));
+  };
+
+  /**
+   * Derives a user-facing status label from task properties.
+   *
+   * @param {Object} task - Task object
+   * @returns {string} Status label
+   */
+  const getStatusLabel = (task) => {
+    if (task.completed) return 'Done';
+    const dueDate = new Date(task.due_date);
+    const today = new Date();
+    today.setHours(0, 0, 0, 0);
+    return dueDate < today ? 'Overdue' : 'Incomplete';
+  };
+
+  /**
+   * Returns tasks sorted by the active sort configuration.
+   *
+   * @type {Array}
+   */
+  const sortedTasks = [...tasks].sort((a, b) => {
+    let aVal = a[sortConfig.key];
+    let bVal = b[sortConfig.key];
+
+    if (sortConfig.key === 'completed') {
+      aVal = getStatusLabel(a);
+      bVal = getStatusLabel(b);
+    }
+
+    if (aVal == null) return 1;
+    if (bVal == null) return -1;
+
+    if (sortConfig.key.includes('date')) {
+      return sortConfig.direction === 'asc'
+        ? new Date(aVal) - new Date(bVal)
+        : new Date(bVal) - new Date(aVal);
+    }
+
+    if (typeof aVal === 'string') {
+      return sortConfig.direction === 'asc'
+        ? aVal.localeCompare(bVal)
+        : bVal.localeCompare(aVal);
+    }
+
+    return sortConfig.direction === 'asc' ? aVal - bVal : bVal - aVal;
+  });
+
   return (
     <div className="page-wrapper">
       <NavBar />
@@ -99,13 +162,41 @@ const Home = () => {
               Create Task
             </Button>
           </div>
+
+          {/* Column Headers */}
           <div className="row fw-bold px-3 py-2 d-none d-md-flex">
-            <div className="col-md-3">Title</div>
-            <div className="col-md-4">Description</div>
-            <div className="col-md-2">Due Date</div>
-            <div className="col-md-2">Status</div>
+            <div
+              className="col-md-3"
+              style={{ cursor: 'pointer' }}
+              onClick={() => handleSort('title')}
+            >
+              Title {sortConfig.key === 'title' && (sortConfig.direction === 'asc' ? '↑' : '↓')}
+            </div>
+            <div
+              className="col-md-4"
+              style={{ cursor: 'pointer' }}
+              onClick={() => handleSort('description')}
+            >
+              Description {sortConfig.key === 'description' && (sortConfig.direction === 'asc' ? '↑' : '↓')}
+            </div>
+            <div
+              className="col-md-2"
+              style={{ cursor: 'pointer' }}
+              onClick={() => handleSort('due_date')}
+            >
+              Due Date {sortConfig.key === 'due_date' && (sortConfig.direction === 'asc' ? '↑' : '↓')}
+            </div>
+            <div
+              className="col-md-2"
+              style={{ cursor: 'pointer' }}
+              onClick={() => handleSort('completed')}
+            >
+              Status {sortConfig.key === 'completed' && (sortConfig.direction === 'asc' ? '↑' : '↓')}
+            </div>
             <div className="col-md-1 text-end pe-4">Done</div>
           </div>
+
+          {/* Task List */}
           {loading ? (
             <Spinner animation="border" />
           ) : error ? (
@@ -114,7 +205,7 @@ const Home = () => {
             <p>No tasks found.</p>
           ) : (
             <ListGroup>
-              {tasks.map((task) => (
+              {sortedTasks.map((task) => (
                 <ListGroup.Item
                   key={task.id}
                   as={Link}
@@ -122,7 +213,7 @@ const Home = () => {
                   className={`px-3 py-2 list-group-item-action text-decoration-none d-block task-box ${
                     darkMode ? 'task-box-dark' : 'task-box-light'
                   }`}
-                >     
+                >
                   <div className="row align-items-center text-wrap">
                     <div className="col-6 col-md-3">
                       <span className="fw-bold">{task.title}</span>
@@ -137,13 +228,15 @@ const Home = () => {
                     </div>
 
                     <div className="col-3 col-md-2 text-end text-md-start">
-                      {task.completed ? (
-                        <Badge bg="success">Done</Badge>
-                      ) : new Date(task.due_date) < new Date().setHours(0, 0, 0, 0) ? (
-                        <Badge bg="danger">Overdue</Badge>
-                      ) : (
-                        <Badge bg="warning text-dark">Incomplete</Badge>
-                      )}
+                      <Badge bg={
+                        task.completed
+                          ? 'success'
+                          : new Date(task.due_date) < new Date().setHours(0, 0, 0, 0)
+                          ? 'danger'
+                          : 'warning text-dark'
+                      }>
+                        {getStatusLabel(task)}
+                      </Badge>
                     </div>
 
                     <div className="col-3 col-md-1 text-end">
