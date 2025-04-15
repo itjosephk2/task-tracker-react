@@ -13,6 +13,7 @@ This is the front-end React application for the **Task Tracker** project, built 
 - [Live Site](#live-site)
 - [Technologies Used](#technologies-used)
 - [Features](#features)
+- [Agile Development Process](#agile-development-process)
 - [UX Design Process & Layout](#ux-design-process--layout)
   - [Design Process](#design-process)
   - [Navigation](#navigation)
@@ -27,7 +28,6 @@ This is the front-end React application for the **Task Tracker** project, built 
 - [File Structure](#file-structure)
 - [Testing](#testing)
 - [Future Enhancements](#future-enhancements)
-- [Dependencies Used](#dependencies-used)
 - [Role of Front-End Developers in Decoupled Applications](#role-of-front-end-developers-in-decoupled-applications)
 - [Acknowledgements](#acknowledgements)
 
