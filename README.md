@@ -146,6 +146,21 @@ REACT_APP_API_BASE_URL=https://task-tracker-drf-e7e43a44f5b5.herokuapp.com/api/
 
 ---
 
+## Role of Front-End Developers in Decoupled Applications
+
+In modern software development, front-end developers play a crucial role in **building decoupled applications**, where the user interface (UI) is separated from the backend logic. This approach allows teams to work independently on different parts of the application, accelerating development and improving scalability.
+
+Specialist front-end developers are responsible for:
+- Designing and implementing dynamic, responsive, and accessible user interfaces.
+- Consuming APIs provided by the backend to display and manipulate data.
+- Managing state, routing, and client-side validation to provide a seamless user experience.
+- Collaborating with UX/UI designers and backend engineers to ensure functional and aesthetic consistency.
+
+In this project, the React frontend is fully decoupled from the Django REST backend. The frontend interacts with the API via HTTP requests, making the system more modular and easier to maintain or scale in the future.
+
+
+---
+
 ## Acknowledgements
 
 Thanks to Code Institute and the React/Django DRF communities for the walkthroughs, guidance, and support throughout this journey.
