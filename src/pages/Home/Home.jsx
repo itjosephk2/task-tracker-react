@@ -142,7 +142,7 @@ const Home = () => {
                       ) : new Date(task.due_date) < new Date().setHours(0, 0, 0, 0) ? (
                         <Badge bg="danger">Overdue</Badge>
                       ) : (
-                        <Badge bg="warning text-dark">Pending</Badge>
+                        <Badge bg="warning text-dark">Incomplete</Badge>
                       )}
                     </div>
 
