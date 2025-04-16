@@ -65,15 +65,15 @@ Task Tracker is a productivity application that allows users to:
 
 ## Features
 
-## Feature: [Feature Name]
+### Landing Page
 
 ![Landing Page](./public/assets/images/landing_page.png)
 
-### Description
+#### Description
 
 The landing page just functions as a brief description of the application and a cta to the app.
 
-### Planned Improvements
+#### Planned Improvements
 
 -    [ ] I would like to design a more thourough page.
 -    [ ] I would like to redesign the layout.
