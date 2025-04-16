@@ -95,7 +95,7 @@ The Login Page is a simple layout for signing in to the app
 
 ### Signup Page
 
-![Laogin Page](./public/assets/images/signup.png)
+![Signup Page](./public/assets/images/signup.png)
 
 #### Description
 
@@ -105,6 +105,34 @@ The Signup Page is a simple layout for signing in to the app
 
 -    [ ] I would like to redesign the laout to a two section page with an image on the right side
 -    [ ] I would like to brand the Signup page
+
+### Task List Page
+
+![Task lists Page](./public/assets/images/tasks.png)
+
+#### Description
+
+The tasklist page is the main page of the app. It contains all the tasks listed down. There is fields which all can be ordered by. There is also a toggle check box to check the task as completed or not.
+
+#### Planned Improvements
+
+-    [ ] I would like to make the tasks draggable so you can manual sort them
+-    [ ] I would like to add a folder system to store the tasks
+-    [ ] I am thinking about a filter/search system for them
+
+### Task List Page
+
+![Task View Page](./public/assets/images/task.png)
+
+#### Description
+
+The taskTask View page allows the user to view the full details of the task. I think it is kind of fun with the emojis and on mobile it allows you to have a full breakdown of the task.
+
+#### Planned Improvements
+
+-    [ ] I would like to make the task view draggable and maybe make it a pin board from a folder
+-    [ ] I would like add custom features like riorities etc that can be managed here
+-    [ ] I am thinking about creating board templates like kanban boards so when you come to here from a folder it can behave in the way you like e.g. kanban, pin board etc
 
 ---
 
