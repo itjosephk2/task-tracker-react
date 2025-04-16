@@ -112,7 +112,7 @@ The Signup Page is a simple layout for signing in to the app
 
 #### Description
 
-The tasklist page is the main page of the app. It contains all the tasks listed down. There is fields which all can be ordered by. There is also a toggle check box to check the task as completed or not.
+The task list page is the main page of the app. It contains all the tasks listed down. There is fields which all can be ordered by. There is also a toggle check box to check the task as completed or not.
 
 #### Planned Improvements
 
@@ -126,13 +126,39 @@ The tasklist page is the main page of the app. It contains all the tasks listed 
 
 #### Description
 
-The taskTask View page allows the user to view the full details of the task. I think it is kind of fun with the emojis and on mobile it allows you to have a full breakdown of the task. A task can also be delted or edited from here.
+The task View page allows the user to view the full details of the task. I think it is kind of fun with the emojis and on mobile it allows you to have a full breakdown of the task. A task can also be delted or edited from here.
 
 #### Planned Improvements
 
 -    [ ] I would like to make the task view draggable and maybe make it a pin board from a folder
 -    [ ] I would like add custom features like riorities etc that can be managed here
 -    [ ] I am thinking about creating board templates like kanban boards so when you come to here from a folder it can behave in the way you like e.g. kanban, pin board etc
+
+### Task List Edit Page
+
+![Task Create Page](./public/assets/images/create_task.png)
+
+#### Description
+
+The task create page is where you can create a task. It has a simple form that is very mobile friendly. There is a toastify celebration message on succesul creation. The page stays there so you can create multiple tasks which I have found quite useful when using the app.
+
+#### Planned Improvements
+
+-    [ ] I would like to update the forms layout especially for larger devices
+-    [ ] I would like to update the submit button.
+
+### Task List Edit Page
+
+![Task Edit Page](./public/assets/images/edit_task.png)
+
+#### Description
+
+The taskTask ceate page is where
+
+#### Planned Improvements
+
+-    [ ] I would like to update the forms layout especially for larger devices
+-    [ ] I would like to update the submit button.
 
 ---
 
