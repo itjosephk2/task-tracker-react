@@ -134,7 +134,7 @@ The task View page allows the user to view the full details of the task. I think
 -    [ ] I would like add custom features like riorities etc that can be managed here
 -    [ ] I am thinking about creating board templates like kanban boards so when you come to here from a folder it can behave in the way you like e.g. kanban, pin board etc
 
-### Task List Edit Page
+### Task Create Page
 
 ![Task Create Page](./public/assets/images/create_task.png)
 
@@ -147,18 +147,35 @@ The task create page is where you can create a task. It has a simple form that i
 -    [ ] I would like to update the forms layout especially for larger devices
 -    [ ] I would like to update the submit button.
 
-### Task List Edit Page
+### Task Edit Page
 
 ![Task Edit Page](./public/assets/images/edit_task.png)
 
 #### Description
 
-The taskTask ceate page is where
+The task edit page allows the user to update the fields within the task. This includes the title and description and due date. This also shows off a form in the light theme which is the deafult theme.
 
 #### Planned Improvements
 
 -    [ ] I would like to update the forms layout especially for larger devices
 -    [ ] I would like to update the submit button.
+-    [ ] I am thinking of adding a collaboration feature for teams etc and as a result locking down the edit feature to admins.
+
+### Extra features
+
+![Light Theme Page](./public/assets/images/light_theme.png)
+![Mobile Task list Page](./public/assets/images/mobile_task_list.png)
+
+#### Description
+
+The aboveshows the light theme which is the default theme although most images were taken in dark theme as that is my default.
+There is also a design of the mobile task list where unneccesary features were removed to help fit the mobile device better, including order by. Which just sits at the default way of date.
+
+#### Planned Improvements
+
+-    [ ] I would like to add more themes or even custom themes
+-    [ ] I would like to add order by on mobile but I would have to design a clean way that fits the app.
+-    [ ] I would like to add a react native mobile app
 
 ---
 
