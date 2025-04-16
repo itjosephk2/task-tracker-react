@@ -1,4 +1,3 @@
-
 # Task Tracker Front-End
 
 > ![Task Tracker responsive](public/assets/images/main.png)
@@ -11,27 +10,27 @@ This is the front-end React application for the **Task Tracker** project, built 
 
 ## Table of Contents
 
-- [Project Purpose](#project-purpose)
-- [Live Site](#live-site)
-- [Technologies Used](#technologies-used)
-- [Features](#features)
-- [Agile Development Process](#agile-development-process)
-- [UX Design Process & Layout](#ux-design-process--layout)
-  - [Design Process](#design-process)
-  - [Navigation](#navigation)
-  - [Task Table](#task-table)
-  - [Task Creation](#task-creation)
-  - [Responsive Design](#responsive-design)
-  - [Accessibility](#accessibility)
-  - [Visual Theme](#visual-theme)
-  - [From Wireframes to Final UI](#from-wireframes-to-final-ui)
-- [Manual Testing](#manual-testing)
-- [Deployment](#deployment)
-- [File Structure](#file-structure)
-- [Testing](#testing)
-- [Future Enhancements](#future-enhancements)
-- [Role of Front-End Developers in Decoupled Applications](#role-of-front-end-developers-in-decoupled-applications)
-- [Acknowledgements](#acknowledgements)
+-    [Project Purpose](#project-purpose)
+-    [Live Site](#live-site)
+-    [Technologies Used](#technologies-used)
+-    [Features](#features)
+-    [Agile Development Process](#agile-development-process)
+-    [UX Design Process & Layout](#ux-design-process--layout)
+     -    [Design Process](#design-process)
+     -    [Navigation](#navigation)
+     -    [Task Table](#task-table)
+     -    [Task Creation](#task-creation)
+     -    [Responsive Design](#responsive-design)
+     -    [Accessibility](#accessibility)
+     -    [Visual Theme](#visual-theme)
+     -    [From Wireframes to Final UI](#from-wireframes-to-final-ui)
+-    [Manual Testing](#manual-testing)
+-    [Deployment](#deployment)
+-    [File Structure](#file-structure)
+-    [Testing](#testing)
+-    [Future Enhancements](#future-enhancements)
+-    [Role of Front-End Developers in Decoupled Applications](#role-of-front-end-developers-in-decoupled-applications)
+-    [Acknowledgements](#acknowledgements)
 
 ---
 
@@ -39,44 +38,58 @@ This is the front-end React application for the **Task Tracker** project, built 
 
 Task Tracker is a productivity application that allows users to:
 
-- Register and log in securely.
-- View, create, update, and delete tasks.
-- Mark tasks as completed.
-- Access a fully responsive, accessible UI built with React and Bootstrap.
+-    Register and log in securely.
+-    View, create, update, and delete tasks.
+-    Mark tasks as completed.
+-    Access a fully responsive, accessible UI built with React and Bootstrap.
 
 ---
 
 ## Live Site
 
-- Frontend: [Heroku Frontend App](https://task-traker-react-494a1f4ec4cd.herokuapp.com/)
-- Backend API: [Heroku API](https://task-tracker-drf-e7e43a44f5b5.herokuapp.com/api/)
+-    Frontend: [Heroku Frontend App](https://task-traker-react-494a1f4ec4cd.herokuapp.com/)
+-    Backend API: [Heroku API](https://task-tracker-drf-e7e43a44f5b5.herokuapp.com/api/)
 
 ---
 
-##  Technologies Used
+## Technologies Used
 
-- React.js
-- React Router
-- Axios
-- Bootstrap 5
-- Django REST Framework (Back-End)
-- Heroku (Deployment)
+-    React.js
+-    React Router
+-    Axios
+-    Bootstrap 5
+-    Django REST Framework (Back-End)
+-    Heroku (Deployment)
 
 ---
 
 ## Features
 
-- **Authentication**: User signup, login, and logout.
-- **Task Management (CRUD)**:
-- Create a task with title, description, and due date.
-- Read/view task details.
-- Update tasks using an edit form.
-- Delete tasks with confirmation.
-- Mark task as completed using a PATCH request.
-- **Routing**: Protected routes based on login state.
-- **Feedback**: Alerts and validation for form errors and success.
-- **Responsive Design**: Mobile-friendly and accessible.
-- **UX Enhancements**: Loading indicators, navigation feedback.
+## Feature: [Feature Name]
+
+![Landing Page](./assets/images/landing_page.png)
+
+### Description
+
+Briefly explain what this feature does and why it's useful. Mention technologies or components used if relevant.
+
+### Planned Improvements
+
+-    [ ] Describe an improvement you'd like to make
+-    [ ] Another planned enhancement or refactor
+-    [ ] (Optional) Note any current limitations or bugs
+
+-    **Authentication**: User signup, login, and logout.
+-    **Task Management (CRUD)**:
+-    Create a task with title, description, and due date.
+-    Read/view task details.
+-    Update tasks using an edit form.
+-    Delete tasks with confirmation.
+-    Mark task as completed using a PATCH request.
+-    **Routing**: Protected routes based on login state.
+-    **Feedback**: Alerts and validation for form errors and success.
+-    **Responsive Design**: Mobile-friendly and accessible.
+-    **UX Enhancements**: Loading indicators, navigation feedback.
 
 ---
 
@@ -85,10 +98,11 @@ Task Tracker is a productivity application that allows users to:
 This project was developed using an Agile-inspired, iterative approach. Features were built incrementally and tested manually throughout each development cycle. Early wireframes and planning helped guide the initial structure, but refinements were made continuously based on feedback and testing.
 
 Key aspects of Agile followed:
-- **Incremental development**: Core functionality (authentication, task management) was prioritized and implemented early.
-- **Continuous testing**: Manual testing was carried out during and after each feature to ensure a reliable user experience.
-- **Adaptability**: UI and UX decisions evolved based on what worked well in practice, not just in theory.
-- **Feature-focused sprints**: Each session focused on completing a feature end-to-end (e.g. task creation, editing, or deletion).
+
+-    **Incremental development**: Core functionality (authentication, task management) was prioritized and implemented early.
+-    **Continuous testing**: Manual testing was carried out during and after each feature to ensure a reliable user experience.
+-    **Adaptability**: UI and UX decisions evolved based on what worked well in practice, not just in theory.
+-    **Feature-focused sprints**: Each session focused on completing a feature end-to-end (e.g. task creation, editing, or deletion).
 
 Although developed solo, this project emulates Agile workflows through iteration, responsiveness to change, and a focus on delivering working software at every stage.
 
@@ -105,43 +119,44 @@ The UX design for the Task Tracker frontend was planned prior to development to 
 Before coding began, low-fidelity wireframes were created to define the core structure and user flow of the application. These wireframes guided the layout of key components such as the navigation bar, task list, and task creation interface. They ensured the UI would be both functional and visually clean across devices.
 
 The design focused on:
-- Presenting tasks in a readable, table-based format
-- Making the most important actions (like creating or marking tasks as done) immediately visible
-- Ensuring users could easily log in/out and navigate with minimal effort
+
+-    Presenting tasks in a readable, table-based format
+-    Making the most important actions (like creating or marking tasks as done) immediately visible
+-    Ensuring users could easily log in/out and navigate with minimal effort
 
 Wireframes and visual diagrams were used throughout the process to validate layout decisions and ensure consistency from design to deployment.
 
-> *Wireframe Example: Homepage Task View*  
+> _Wireframe Example: Homepage Task View_  
 > ![Task Tracker Wireframe](public/assets/images/wireframe.jpg)
 
 ### Navigation
 
-- A fixed top navigation bar includes the app title, a "Tasks" button, and a "Logout" button.
-- Persistent navigation ensures users can easily move through the app without confusion.
+-    A fixed top navigation bar includes the app title, a "Tasks" button, and a "Logout" button.
+-    Persistent navigation ensures users can easily move through the app without confusion.
 
 ### Task Table
 
-- Tasks are displayed in a responsive table format with the following columns: **Title**, **Description**, **Due Date**, **Status**, and a **Done checkbox**.
-- Color-coded badges and checkboxes provide quick visual indicators of task completion.
+-    Tasks are displayed in a responsive table format with the following columns: **Title**, **Description**, **Due Date**, **Status**, and a **Done checkbox**.
+-    Color-coded badges and checkboxes provide quick visual indicators of task completion.
 
 ### Task Creation
 
-- A prominent "Create Task" button is placed near the top-right of the task list, following common UI patterns for action placement.
+-    A prominent "Create Task" button is placed near the top-right of the task list, following common UI patterns for action placement.
 
 ### Responsive Design
 
-- Built using Bootstrap's responsive grid and utility classes.
-- Layout adjusts cleanly across mobile, tablet, and desktop screen sizes.
+-    Built using Bootstrap's responsive grid and utility classes.
+-    Layout adjusts cleanly across mobile, tablet, and desktop screen sizes.
 
 ### Accessibility
 
-- Forms use appropriate labels and validation.
-- Keyboard navigability and strong color contrast were considered to support accessibility.
+-    Forms use appropriate labels and validation.
+-    Keyboard navigability and strong color contrast were considered to support accessibility.
 
 ### Visual Theme
 
-- A clean dark-mode inspired theme helps reduce eye strain and makes key UI elements pop.
-- Green is used for completed tasks, yellow for pending, and blue for primary actions — offering clear visual feedback without overwhelming the user.
+-    A clean dark-mode inspired theme helps reduce eye strain and makes key UI elements pop.
+-    Green is used for completed tasks, yellow for pending, and blue for primary actions — offering clear visual feedback without overwhelming the user.
 
 ---
 
@@ -151,19 +166,18 @@ All core design elements proposed in the original wireframes were implemented in
 
 This structured approach demonstrates a full UX design process — from planning, diagramming, and wireframing to final implementation and deployment.
 
-
 ---
 
-##  Manual Testing
+## Manual Testing
 
 Manual testing has been completed for the following:
 
-- Navigation works as expected (Login → Home → View → Edit).
-- Login/Logout functionality updates state correctly.
-- Form validation triggers on empty submissions.
-- All CRUD operations provide expected feedback.
-- Invalid actions (e.g., editing another user's task) are blocked via API.
-- API data is correctly rendered and updated.
+-    Navigation works as expected (Login → Home → View → Edit).
+-    Login/Logout functionality updates state correctly.
+-    Form validation triggers on empty submissions.
+-    All CRUD operations provide expected feedback.
+-    Invalid actions (e.g., editing another user's task) are blocked via API.
+-    API data is correctly rendered and updated.
 
 Test cases and results are documented in the [Testing Section](#testing).
 
@@ -178,11 +192,13 @@ Frontend deployed with static build via Heroku (Node.js buildpack).
 ## Deployment (Heroku)
 
 1. Create Heroku app:
+
 ```bash
 heroku create your-app-name
 ```
 
 2. Deploy to Heroku:
+
 ```bash
 git push heroku main
 ```
@@ -193,33 +209,33 @@ REACT_APP_API_BASE_URL=https://task-tracker-drf-e7e43a44f5b5.herokuapp.com/api/
 
 ## File Structure
 
-- `src/components/`: All modular React components (Login, Signup, Home, Tasks).
-- `src/api.js`: Central location for API URL and auth header helper.
-- `src/App.js`: Route manager using React Router v6.
-- `src/index.js`: App entry point.
+-    `src/components/`: All modular React components (Login, Signup, Home, Tasks).
+-    `src/api.js`: Central location for API URL and auth header helper.
+-    `src/App.js`: Route manager using React Router v6.
+-    `src/index.js`: App entry point.
 
 ---
 
 ## Testing
 
-| Feature Tested          | Result |
-|-------------------------|--------|
-| Login/Logout Flow       | ✅ Pass |
-| Register New User       | ✅ Pass |
-| Create Task             | ✅ Pass |
-| Edit Task               | ✅ Pass |
-| Delete Task             | ✅ Pass |
-| Mark as Completed       | ✅ Pass |
-| Navigation/Routes       | ✅ Pass |
-| Responsive Design       | ✅ Pass |
+| Feature Tested    | Result  |
+| ----------------- | ------- |
+| Login/Logout Flow | ✅ Pass |
+| Register New User | ✅ Pass |
+| Create Task       | ✅ Pass |
+| Edit Task         | ✅ Pass |
+| Delete Task       | ✅ Pass |
+| Mark as Completed | ✅ Pass |
+| Navigation/Routes | ✅ Pass |
+| Responsive Design | ✅ Pass |
 
 ---
 
 ## Future Enhancements
 
-- Filter/sort tasks by due date and completion.
-- Create task list groups and priority
-- Follow Users and make tasks list groups private or public
+-    Filter/sort tasks by due date and completion.
+-    Create task list groups and priority
+-    Follow Users and make tasks list groups private or public
 
 ---
 
@@ -227,21 +243,20 @@ REACT_APP_API_BASE_URL=https://task-tracker-drf-e7e43a44f5b5.herokuapp.com/api/
 
 This project includes a few key libraries beyond core React to enhance functionality, styling, and user experience:
 
-- **axios**  
-  Used to make HTTP requests to your Django REST API. It simplifies GET, POST, PUT, and DELETE requests and handles things like headers and error responses more cleanly than `fetch`.
+-    **axios**  
+     Used to make HTTP requests to your Django REST API. It simplifies GET, POST, PUT, and DELETE requests and handles things like headers and error responses more cleanly than `fetch`.
 
-- **bootstrap**  
-  Provides a set of CSS styles and layout utilities to quickly build a responsive and consistent UI.
+-    **bootstrap**  
+     Provides a set of CSS styles and layout utilities to quickly build a responsive and consistent UI.
 
-- **react-bootstrap**  
-  Allows you to use Bootstrap components (like buttons, modals, alerts) directly as React components, making styling easier and more React-friendly.
+-    **react-bootstrap**  
+     Allows you to use Bootstrap components (like buttons, modals, alerts) directly as React components, making styling easier and more React-friendly.
 
-- **react-router-dom**  
-  Used to handle routing in your app — for navigating between pages like Home, Create Task, View Task, etc., without reloading the page.
+-    **react-router-dom**  
+     Used to handle routing in your app — for navigating between pages like Home, Create Task, View Task, etc., without reloading the page.
 
-- **react-toastify**  
-  Adds toast notifications to your app — for example, when a task is created, updated, or deleted, you can show success or error messages in a non-intrusive way.
-
+-    **react-toastify**  
+     Adds toast notifications to your app — for example, when a task is created, updated, or deleted, you can show success or error messages in a non-intrusive way.
 
 ---
 
@@ -250,13 +265,13 @@ This project includes a few key libraries beyond core React to enhance functiona
 In modern software development, front-end developers play a crucial role in **building decoupled applications**, where the user interface (UI) is separated from the backend logic. This approach allows teams to work independently on different parts of the application, accelerating development and improving scalability.
 
 Specialist front-end developers are responsible for:
-- Designing and implementing dynamic, responsive, and accessible user interfaces.
-- Consuming APIs provided by the backend to display and manipulate data.
-- Managing state, routing, and client-side validation to provide a seamless user experience.
-- Collaborating with UX/UI designers and backend engineers to ensure functional and aesthetic consistency.
+
+-    Designing and implementing dynamic, responsive, and accessible user interfaces.
+-    Consuming APIs provided by the backend to display and manipulate data.
+-    Managing state, routing, and client-side validation to provide a seamless user experience.
+-    Collaborating with UX/UI designers and backend engineers to ensure functional and aesthetic consistency.
 
 In this project, the React frontend is fully decoupled from the Django REST backend. The frontend interacts with the API via HTTP requests, making the system more modular and easier to maintain or scale in the future.
-
 
 ---
 
