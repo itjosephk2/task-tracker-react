@@ -79,29 +79,32 @@ The landing page just functions as a brief description of the application and a 
 -    [ ] I would like to redesign the layout.
 -    [ ] I Would like to seperate the landing page from the app in regards to the navigation bar.
 
+### Login Page
+
 ![Laogin Page](./public/assets/images/login.png)
 
-### Description
+#### Description
 
-The landing page just functions as a brief description of the application and a cta to the app.
+The Login Page is a simple layout for signing in to the app
 
-### Planned Improvements
+#### Planned Improvements
 
--    [ ] I would like to design a more thourough page.
--    [ ] I would like to redesign the layout.
--    [ ] I Would like to seperate the landing page from the app in regards to the navigation bar.
+-    [ ] I would like to redesign the laout to a two section page with an image on the right side
+-    [ ] I would like to brand the login page
+-    [ ] I Would like to add a forgot your password section
 
--    **Authentication**: User signup, login, and logout.
--    **Task Management (CRUD)**:
--    Create a task with title, description, and due date.
--    Read/view task details.
--    Update tasks using an edit form.
--    Delete tasks with confirmation.
--    Mark task as completed using a PATCH request.
--    **Routing**: Protected routes based on login state.
--    **Feedback**: Alerts and validation for form errors and success.
--    **Responsive Design**: Mobile-friendly and accessible.
--    **UX Enhancements**: Loading indicators, navigation feedback.
+### Signup Page
+
+![Laogin Page](./public/assets/images/signup.png)
+
+#### Description
+
+The Signup Page is a simple layout for signing in to the app
+
+#### Planned Improvements
+
+-    [ ] I would like to redesign the laout to a two section page with an image on the right side
+-    [ ] I would like to brand the Signup page
 
 ---
 
