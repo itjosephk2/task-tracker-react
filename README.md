@@ -1,6 +1,8 @@
 
 # Task Tracker Front-End
 
+> ![Task Tracker responsive](public/assets/images/main.jpg)
+
 This is the front-end React application for the **Task Tracker** project, built as part of the Advanced Front-End Portfolio Project for the Code Institute Full-Stack Software Development diploma.
 
 [Back-End Repository](https://github.com/itjosephk2/task-tracker-drf)
@@ -110,7 +112,7 @@ The design focused on:
 Wireframes and visual diagrams were used throughout the process to validate layout decisions and ensure consistency from design to deployment.
 
 > *Wireframe Example: Homepage Task View*  
-> ![Task Tracker Wireframe](public/assets/wireframe.jpg)
+> ![Task Tracker Wireframe](public/assets/images/wireframe.jpg)
 
 ### Navigation
 
