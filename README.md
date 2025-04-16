@@ -126,7 +126,7 @@ The tasklist page is the main page of the app. It contains all the tasks listed 
 
 #### Description
 
-The taskTask View page allows the user to view the full details of the task. I think it is kind of fun with the emojis and on mobile it allows you to have a full breakdown of the task.
+The taskTask View page allows the user to view the full details of the task. I think it is kind of fun with the emojis and on mobile it allows you to have a full breakdown of the task. A task can also be delted or edited from here.
 
 #### Planned Improvements
 
