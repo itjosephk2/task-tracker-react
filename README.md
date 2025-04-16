@@ -67,7 +67,7 @@ Task Tracker is a productivity application that allows users to:
 
 ## Feature: [Feature Name]
 
-![Landing Page](./assets/images/landing_page.png)
+![Landing Page](./public/assets/images/landing_page.png)
 
 ### Description
 
