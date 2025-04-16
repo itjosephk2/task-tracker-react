@@ -71,13 +71,25 @@ Task Tracker is a productivity application that allows users to:
 
 ### Description
 
-Briefly explain what this feature does and why it's useful. Mention technologies or components used if relevant.
+The landing page just functions as a brief description of the application and a cta to the app.
 
 ### Planned Improvements
 
--    [ ] Describe an improvement you'd like to make
--    [ ] Another planned enhancement or refactor
--    [ ] (Optional) Note any current limitations or bugs
+-    [ ] I would like to design a more thourough page.
+-    [ ] I would like to redesign the layout.
+-    [ ] I Would like to seperate the landing page from the app in regards to the navigation bar.
+
+![Laogin Page](./public/assets/images/login.png)
+
+### Description
+
+The landing page just functions as a brief description of the application and a cta to the app.
+
+### Planned Improvements
+
+-    [ ] I would like to design a more thourough page.
+-    [ ] I would like to redesign the layout.
+-    [ ] I Would like to seperate the landing page from the app in regards to the navigation bar.
 
 -    **Authentication**: User signup, login, and logout.
 -    **Task Management (CRUD)**:
