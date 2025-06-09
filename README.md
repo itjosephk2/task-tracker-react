@@ -312,16 +312,17 @@ REACT_APP_API_BASE_URL=https://task-tracker-drf-e7e43a44f5b5.herokuapp.com/api/
 
 ## Testing
 
-| Feature Tested    | Result  |
-| ----------------- | ------- |
-| Login/Logout Flow | ✅ Pass |
-| Register New User | ✅ Pass |
-| Create Task       | ✅ Pass |
-| Edit Task         | ✅ Pass |
-| Delete Task       | ✅ Pass |
-| Mark as Completed | ✅ Pass |
-| Navigation/Routes | ✅ Pass |
-| Responsive Design | ✅ Pass |
+| Feature Tested     | Description                                                  | Result  |
+|--------------------|--------------------------------------------------------------|---------|
+| Login/Logout Flow  | Ensures users can log in with valid credentials and log out  | ✅ Pass |
+| Register New User  | Confirms a new user can register with valid data             | ✅ Pass |
+| Create Task        | Tests ability to create a task with required fields          | ✅ Pass |
+| Edit Task          | Validates full/partial updates to an existing task           | ✅ Pass |
+| Delete Task        | Checks if a user can delete their own task                   | ✅ Pass |
+| Mark as Completed  | Verifies task completion status can be toggled               | ✅ Pass |
+| Navigation/Routes  | Confirms correct navigation between views/pages              | ✅ Pass |
+| Responsive Design  | Ensures layout adapts properly across device sizes           | ✅ Pass |
+
 
 ---
 
