@@ -277,29 +277,108 @@ Test cases and results are documented in the [Testing Section](#testing).
 
 ---
 
-## Deployment
+# Deployment to Heroku
 
-Deployed using Heroku:
+This project was deployed using **Heroku**, with source code hosted on [GitHub](https://github.com/itjosephk2/task-tracker-drf).
 
-Frontend deployed with static build via Heroku (Node.js buildpack).
+## Prerequisites
 
-## Deployment (Heroku)
-
-1. Create Heroku app:
-
-```bash
-heroku create your-app-name
-```
-
-2. Deploy to Heroku:
-
-```bash
-git push heroku main
-```
-
-REACT_APP_API_BASE_URL=https://task-tracker-drf-e7e43a44f5b5.herokuapp.com/api/
+* A GitHub repository for your project
+* [Heroku CLI](https://devcenter.heroku.com/articles/heroku-cli) installed
+* A Heroku account
 
 ---
+
+## 1. Create and Clone the GitHub Repository
+
+* Navigate to [GitHub](https://github.com/)
+* Create a **new repository** (leave it empty, no README or license)
+* Copy the **HTTPS or SSH** URL
+* In your terminal:
+
+```bash
+cd path/to/projects/
+git clone https://github.com/itjosephk2/task-tracker-drf.git
+cd task-tracker-drf
+code .
+```
+
+---
+
+## 2. Prepare Your App
+
+If you're deploying a **React frontend**, make sure it is built before deploying:
+
+```bash
+npm install
+npm run build
+```
+
+If you're deploying a **Django backend**, ensure your requirements are in place:
+
+```bash
+pip freeze > requirements.txt
+echo "web: gunicorn task_tracker.wsgi" > Procfile
+```
+
+Make sure you also:
+
+* Add `whitenoise`, `gunicorn`, `django-heroku`, etc. to `requirements.txt`
+* Set `ALLOWED_HOSTS` and configure Heroku environment variables
+
+---
+
+## 3. Create a Heroku App
+
+In the Heroku Dashboard:
+
+* Click **"New" → "Create new app"**
+* Choose a unique app name and region
+* Click **"Create app"**
+
+---
+
+## 4. Connect Heroku to GitHub
+
+* Go to the **Deploy** tab in Heroku
+* Select **GitHub** as the deployment method
+* Authorize Heroku to access your GitHub repositories if prompted
+* Search for your repository and **click Connect**
+
+---
+
+## 5. Configure Deployment Settings
+
+* Choose manual or automatic deploys:
+
+  * **Manual**: Click "Deploy Branch" when ready
+  * **Automatic**: Enable "Automatic Deploys" from a chosen branch
+* Watch the build log for successful deployment
+
+---
+
+## 6. Set Environment Variables
+
+In the **Settings** tab:
+
+* Click "Reveal Config Vars"
+* Add all necessary variables, for example:
+
+```env
+DEBUG=False
+SECRET_KEY=your-secret-key
+ALLOWED_HOSTS=your-app-name.herokuapp.com
+DATABASE_URL=Heroku Postgres URL
+```
+
+---
+
+## Final Steps
+
+* Open your deployed app from the **Heroku Dashboard**
+* Verify backend or frontend is working as expected
+* Optional: Add a custom domain or enable HTTPS
+
 
 ## File Structure
 
