@@ -298,7 +298,7 @@ Now we need to open up a command prompt to pull this empty repository down onto 
 
 - Open a CMD
 - CD to a location you wish to store this project
-- Now type **git clone https://github.com/MikeR94/pp5-deployment-process.git**
+- Now type **git clone https://github.com/itjosephk2/task-tracker-react.git**
 - After the project has been pulled down onto your local machine, CD to the project and type **code .** to open the project with [VSCode](https://code.visualstudio.com/)
 
 ![Deployment 3](assets/images/readme/deployment-3.png)
