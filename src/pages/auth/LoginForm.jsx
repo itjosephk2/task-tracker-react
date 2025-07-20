@@ -4,6 +4,7 @@ import { login } from '../../services/authService';
 import { useNavigate, Link } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import NavBar from '../../components/Navbar/Navbar';
+import Footer from '../../components/Footer/Footer';
 
 /**
  * LoginForm component that allows users to log into the application.
@@ -94,6 +95,7 @@ const LoginForm = () => {
           </Col>
         </Row>
       </Container>
+      <Footer />
     </div>
   );
 };

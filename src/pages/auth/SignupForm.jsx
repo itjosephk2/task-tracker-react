@@ -4,6 +4,7 @@ import { signup } from '../../services/authService';
 import { Link, useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import NavBar from '../../components/Navbar/Navbar';
+import Footer from '../../components/Footer/Footer';
 
 /**
  * SignupForm component that allows new users to register for an account.
@@ -107,6 +108,7 @@ const SignupForm = () => {
           </Col>
         </Row>
       </Container>
+      <Footer />
     </div>
   );
 };
