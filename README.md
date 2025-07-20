@@ -83,13 +83,13 @@ The landing page just functions as a brief description of the application and a 
 
 #### Planned Improvements
 
--    [ ] I would like to design a more thourough page.
+-    [ ] I would like to design a more thorough page.
 -    [ ] I would like to redesign the layout.
--    [ ] I Would like to seperate the landing page from the app in regards to the navigation bar.
+-    [ ] I Would like to separate the landing page from the app in regards to the navigation bar.
 
 ### Login Page
 
-![Laogin Page](./public/assets/images/login.png)
+![Login Page](./public/assets/images/login.png)
 
 #### Description
 
@@ -97,7 +97,7 @@ The Login Page is a simple layout for signing in to the app
 
 #### Planned Improvements
 
--    [ ] I would like to redesign the laout to a two section page with an image on the right side
+-    [ ] I would like to redesign the layout to a two section page with an image on the right side
 -    [ ] I would like to brand the login page
 -    [ ] I Would like to add a forgot your password section
 
@@ -134,7 +134,7 @@ The task list page is the main page of the app. It contains all the tasks listed
 
 #### Description
 
-The task View page allows the user to view the full details of the task. I think it is kind of fun with the emojis and on mobile it allows you to have a full breakdown of the task. A task can also be delted or edited from here.
+The task View page allows the user to view the full details of the task. I think it is kind of fun with the emojis and on mobile it allows you to have a full breakdown of the task. A task can also be deleted or edited from here.
 
 #### Planned Improvements
 
